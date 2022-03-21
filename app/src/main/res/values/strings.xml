@@ -1,0 +1,16 @@
+<resources>
+  <string name="fo_website">https://www.kevinputro.id/</string>
+  <string name="fo_play_store">https://play.google.com/store/apps/details?id=id.kevinputro.hello</string>
+
+  <string name="fo_load_failed">Load failed</string>
+  <string name="fo_see_more">See more</string>
+  <string name="fo_see_all">See all</string>
+  <string name="fo_please_wait">Please wait</string>
+  <string name="fo_ok">OK</string>
+  <string name="fo_yes">Yes</string>
+  <string name="fo_no">No</string>
+  <string name="fo_cancel">Cancel</string>
+  <string name="fo_dismiss">Dismiss</string>
+  <string name="fo_reload">Reload</string>
+  <string name="fo_try_again">Try again</string>
+</resources>

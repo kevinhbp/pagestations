@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <!--  Region Text View  -->
+  <style name="FoTextView">
+    <item name="android:textColor">@color/text_black_1</item>
+    <item name="android:textSize">@dimen/fo_font_normal</item>
+    <item name="android:fontFamily">@font/ubuntu_regular</item>
+    <item name="android:includeFontPadding">false</item>
+  </style>
+
+  <style name="FoTextViewBold">
+    <item name="android:textColor">@color/text_black_1</item>
+    <item name="android:textSize">@dimen/fo_font_normal</item>
+    <item name="android:fontFamily">@font/ubuntu_bold</item>
+    <item name="android:includeFontPadding">false</item>
+  </style>
+
+  <style name="FoTextViewItalic">
+    <item name="android:textColor">@color/text_black_1</item>
+    <item name="android:textSize">@dimen/fo_font_normal</item>
+    <item name="android:fontFamily">@font/ubuntu_italic</item>
+    <item name="android:includeFontPadding">false</item>
+  </style>
+
+  <style name="FoTextViewBoldItalic">
+    <item name="android:textColor">@color/text_black_1</item>
+    <item name="android:textSize">@dimen/fo_font_normal</item>
+    <item name="android:fontFamily">@font/ubuntu_bolditalic</item>
+    <item name="android:includeFontPadding">false</item>
+  </style>
+
+  <style name="FoTextView.Micro">
+    <item name="android:textSize">@dimen/fo_font_micro</item>
+  </style>
+
+  <style name="FoTextView.Tiny">
+    <item name="android:textSize">@dimen/fo_font_tiny</item>
+  </style>
+
+  <style name="FoTextView.Small">
+    <item name="android:textSize">@dimen/fo_font_small</item>
+  </style>
+
+  <style name="FoTextViewBold.Small">
+    <item name="android:textSize">@dimen/fo_font_small</item>
+  </style>
+
+  <style name="FoTextViewBold.Large">
+    <item name="android:textSize">@dimen/fo_font_large</item>
+  </style>
+
+  <!-- Region Progress Bar -->
+  <style name="FoLoading" parent="Base.Widget.AppCompat.ProgressBar">
+    <item name="android:layout_height">@dimen/fo_size_loading_main</item>
+    <item name="android:layout_width">@dimen/fo_size_loading_main</item>
+    <item name="android:indeterminate">true</item>
+    <item name="android:indeterminateTint" tools:targetApi="lollipop">@color/secondary_light</item>
+  </style>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="dashboardViewModel"
+      type="id.kputro.hello.ui.dashboard.DashboardViewModel" />
+
+    <variable
+      name="actionBarViewModel"
+      type="id.kputro.hello.ui.components.actionbar.ActionBarViewModel" />
+  </data>
+
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@color/bg_gray"
+    tools:context=".ui.dashboard.DashboardActivity">
+
+    <include
+      android:id="@+id/sub_content"
+      layout="@layout/dashboard_content"
+      app:dashboardViewModel="@{dashboardViewModel}" />
+
+    <include
+      android:id="@+id/sub_actionbar"
+      layout="@layout/actionbar_dashboard"
+      app:actionBarViewModel="@{actionBarViewModel}" />
+
+  </FrameLayout>
+</layout>

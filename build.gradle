@@ -1,0 +1,44 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+  ext {
+    setup = [
+        appName: "Kevin Putro",
+        applicationId: "id.kputro.hello",
+        compileSdkVersion: 31,
+        minSdkVersion: 21,
+        targetSdkVersion: 31,
+        versionCode: 10000,
+        versionName: "1.00",
+    ]
+    mCoreKtx = '1.7.0'
+    mAppCompat = '1.4.1'
+    mBrowser = '1.4.0'
+    mGoogleMaterial = '1.5.0'
+    mKoin = '3.2.0-beta-1'
+    mRetrofit = '2.9.0'
+    mOkHttp = '5.0.0-alpha.5'
+    mKotlinxCoroutines = '1.6.0-native-mt'
+    mRxAndroid = '2.1.1'
+    mRxKotlin = '2.4.0'
+    mChuck = '1.1.0'
+    mJunit = '4.13.2'
+    mExtJunit = '1.1.3'
+    mExpressoCore = '3.4.0'
+  }
+
+  dependencies {
+    classpath 'com.google.gms:google-services:4.3.10'
+  }
+}
+
+plugins {
+  id 'com.android.application' version '7.1.0' apply false
+  id 'com.android.library' version '7.1.0' apply false
+  id 'org.jetbrains.kotlin.android' version '1.6.10' apply false
+}
+
+project.ext.set("buildTime", new Date().format("yyyyMMddhhmm", TimeZone.getTimeZone("GMT+7")))
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}

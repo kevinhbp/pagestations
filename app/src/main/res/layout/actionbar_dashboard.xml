@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="actionBarViewModel"
+      type="id.kputro.hello.ui.components.actionbar.ActionBarViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="0dp"
+      android:layout_height="?actionBarSize"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:background="@color/white">
+
+      <View
+        android:id="@+id/bg_action_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:id="@+id/tv_title"
+        style="@style/FoTextViewBold.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/fo_spacing_l"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="1"
+        android:text="@{actionBarViewModel.textTitle}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        tools:text="@string/app_name" />
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/fo_spacing_s"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+          android:id="@+id/wp_button_b"
+          android:layout_width="@dimen/fo_size_button_m"
+          android:layout_height="match_parent"
+          android:background="@drawable/bg_button_ripple_default"
+          android:clickable="true"
+          android:focusable="true"
+          android:onClick="@{actionBarViewModel::onClickButtonB}">
+
+          <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/fo_size_button_s"
+            android:layout_height="@dimen/fo_size_button_s"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            app:setImage="@{actionBarViewModel.imageButtonB}"
+            tools:src="@drawable/ic_notifications" />
+
+        </FrameLayout>
+
+        <FrameLayout
+          android:id="@+id/wp_button_a"
+          android:layout_width="@dimen/fo_size_button_m"
+          android:layout_height="match_parent"
+          android:background="@drawable/bg_button_ripple_default"
+          android:clickable="true"
+          android:focusable="true"
+          android:onClick="@{actionBarViewModel::onClickButtonA}">
+
+          <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/fo_size_button_s"
+            android:layout_height="@dimen/fo_size_button_s"
+            android:layout_gravity="center"
+            android:scaleType="centerInside"
+            app:setImage="@{actionBarViewModel.imageButtonA}"
+            tools:src="@drawable/ic_settings" />
+
+        </FrameLayout>
+
+      </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+      android:layout_width="@dimen/fo_size_img_logo_dashboard"
+      android:layout_height="@dimen/fo_size_img_logo_dashboard"
+      android:layout_marginTop="@dimen/fo_spacing_s"
+      android:layout_marginBottom="@dimen/fo_spacing_s"
+      app:cardBackgroundColor="@color/white"
+      app:cardCornerRadius="@dimen/fo_radius_squarcle"
+      app:cardElevation="0dp"
+      app:cardPreventCornerOverlap="true"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/fo_spacing_s"
+        android:scaleType="centerInside"
+        app:setImage="@{actionBarViewModel.imageLogo}"
+        tools:src="@drawable/ic_logo" />
+
+    </androidx.cardview.widget.CardView>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
