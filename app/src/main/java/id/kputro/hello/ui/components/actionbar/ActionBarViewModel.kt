@@ -1,15 +1,16 @@
 package id.kputro.hello.ui.components.actionbar
 
+import android.util.Log
 import android.view.View
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import androidx.lifecycle.ViewModel
 import id.kputro.hello.core.extension.isFilled
-import id.kputro.hello.core.extension.replaceIfNull
 import id.kputro.hello.entity.ActionBarBuilder
 import id.kputro.hello.ui.base.BaseView
 import id.kputro.hello.ui.base.BaseViewModel
 import id.kputro.hello.ui.components.actionbar.ActionBarContract.ActionBarViewContract
+import id.kputro.hello.utils.const.Global
 
 interface ActionBarContract {
   interface ActionBarViewModelContract : BaseViewModel<ActionBarViewContract> {

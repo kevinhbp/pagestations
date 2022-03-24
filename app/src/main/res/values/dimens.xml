@@ -17,13 +17,17 @@
   <dimen name="fo_radius_circle">200dp</dimen>
   <dimen name="fo_radius_squarcle">32dp</dimen>
 
+  <dimen name="fo_size_button_s">40dp</dimen>
+  <dimen name="fo_size_button_m">56dp</dimen>
+  <dimen name="fo_size_button_l">72dp</dimen>
+
   <dimen name="fo_elevation_default">6dp</dimen>
 
   <dimen name="fo_size_img_logo_splash">180dp</dimen>
   <dimen name="fo_size_img_logo_dashboard">80dp</dimen>
   <dimen name="fo_size_loading_main">40dp</dimen>
 
-  <dimen name="fo_size_button_s">40dp</dimen>
-  <dimen name="fo_size_button_m">56dp</dimen>
-  <dimen name="fo_size_button_l">72dp</dimen>
+  <dimen name="fo_size_menu_header">200dp</dimen>
+  <dimen name="fo_size_menu_item">170dp</dimen>
+  <dimen name="fo_size_menu_footer">120dp</dimen>
 </resources>

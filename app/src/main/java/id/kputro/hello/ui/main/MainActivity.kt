@@ -2,19 +2,19 @@ package id.kputro.hello.ui.main
 
 import android.os.Bundle
 import id.kputro.hello.R.layout
-import id.kputro.hello.databinding.ActivityMainBinding
+import id.kputro.hello.databinding.MainActivityBinding
 import id.kputro.hello.ui.base.BaseActivity
 import id.kputro.hello.utils.applink.getDashboardPageApplink
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : BaseActivity<ActivityMainBinding>(layout.main_activity),
+class MainActivity : BaseActivity<MainActivityBinding>(layout.main_activity),
   MainContract.MainViewContract {
 
-  private lateinit var binding: ActivityMainBinding
+  private lateinit var binding: MainActivityBinding
 
-  private val mainViewModel : MainViewModel by viewModel()
+  private val mainViewModel: MainViewModel by viewModel()
 
-  override fun initDataBinding(binding: ActivityMainBinding) {
+  override fun initDataBinding(binding: MainActivityBinding) {
     this.binding = binding
     this.binding.mainViewModel = this.mainViewModel
     this.binding.executePendingBindings()

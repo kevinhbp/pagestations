@@ -1,9 +1,11 @@
 package id.kputro.hello
 
 import android.app.Application
+import id.aksesmu.hello.dragon.module.dragonModule
 import id.kputro.hello.dimodule.ContentService
 import id.kputro.hello.dimodule.ContentServiceImpl
 import id.kputro.hello.ui.components.actionbar.ActionBarViewModel
+import id.kputro.hello.ui.dashboard.DashboardActivity
 import id.kputro.hello.ui.dashboard.DashboardViewModel
 import id.kputro.hello.ui.main.MainViewModel
 import org.koin.android.ext.koin.androidContext
@@ -41,5 +43,9 @@ class BootApp : Application() {
     viewModel { ActionBarViewModel() }
     viewModel { MainViewModel(get()) }
     viewModel { DashboardViewModel(get()) }
+  }
+
+  private val mDragonModule = dragonModule {
+    registerActivity("dashboard", DashboardActivity::class.java)
   }
 }

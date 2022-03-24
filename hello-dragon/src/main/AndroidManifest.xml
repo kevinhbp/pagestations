@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  package="id.kputro.hello.dragon">
+
+  <application
+    android:allowBackup="true"
+    android:usesCleartextTraffic="true"
+    android:label="@string/app_name"
+    android:supportsRtl="true"
+    tools:targetApi="q"/>
+
+</manifest>

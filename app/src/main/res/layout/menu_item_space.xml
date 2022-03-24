@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="id.kputro.hello.ui.menu.space.MenuSpaceViewModel" />
+  </data>
+
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/fo_spacing_xxl"
+      android:visibility="@{viewModel.visibilitySpaceXXL}" />
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/fo_spacing_xl"
+      android:visibility="@{viewModel.visibilitySpaceXL}" />
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/fo_spacing_l"
+      android:visibility="@{viewModel.visibilitySpaceL}" />
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/fo_spacing_m"
+      android:visibility="@{viewModel.visibilitySpaceM}" />
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/fo_spacing_s"
+      android:visibility="@{viewModel.visibilitySpaceS}" />
+
+  </FrameLayout>
+</layout>
