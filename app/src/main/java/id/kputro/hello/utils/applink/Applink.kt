@@ -14,7 +14,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.net.URLEncoder
 
-object Applink {
+/*object Applink {
   private val mInternalBrowserSchemes = arrayOf(Route.HTTPS_SCHEME, Route.HTTP_SCHEME)
   private val mSupportedInternalSchemes =
     arrayOf(Route.APP_SCHEME, Route.HTTPS_SCHEME, Route.HTTP_SCHEME)
@@ -129,7 +129,7 @@ object Applink {
       mLock = false
     }
   }
-}
+}*/
 
 object Route {
   const val APP_SCHEME = "kputro"

@@ -2,8 +2,8 @@ package id.aksesmu.hello.dragon.module
 
 typealias ModuleDeclaration = DragonModule.() -> Unit
 
-fun dragonModule(createdAtStart: Boolean = false, moduleDeclaration: ModuleDeclaration): DragonModule {
-  val module = DragonModule(createdAtStart)
+fun dragonModule(moduleDeclaration: ModuleDeclaration): DragonModule {
+  val module = DragonModule()
   moduleDeclaration(module)
   return module
 }

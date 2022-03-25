@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import id.kputro.hello.utils.applink.Applink.doAppLink
+import id.aksesmu.hello.dragon.tools.navigateTo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
@@ -48,7 +48,7 @@ abstract class BaseActivity<in T : ViewDataBinding>(private val mLayoutResId: In
   }
 
   override fun goTo(target: String) {
-    this.doAppLink(target)
+    this.navigateTo(target)
   }
 
   // --

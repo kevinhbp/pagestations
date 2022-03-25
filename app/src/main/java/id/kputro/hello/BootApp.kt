@@ -2,12 +2,14 @@ package id.kputro.hello
 
 import android.app.Application
 import id.aksesmu.hello.dragon.module.dragonModule
+import id.aksesmu.hello.dragon.tools.startDragonRouter
 import id.kputro.hello.dimodule.ContentService
 import id.kputro.hello.dimodule.ContentServiceImpl
 import id.kputro.hello.ui.components.actionbar.ActionBarViewModel
 import id.kputro.hello.ui.dashboard.DashboardActivity
 import id.kputro.hello.ui.dashboard.DashboardViewModel
 import id.kputro.hello.ui.main.MainViewModel
+import id.kputro.hello.utils.applink.Route
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -25,6 +27,7 @@ class BootApp : Application() {
   override fun onCreate() {
     super.onCreate()
     startKoin()
+    startRouter()
   }
 
   // --
@@ -36,7 +39,6 @@ class BootApp : Application() {
     }
   }
 
-  // --
   private val mAppModule = module {
     single<ContentService> { ContentServiceImpl() }
 
@@ -45,7 +47,14 @@ class BootApp : Application() {
     viewModel { DashboardViewModel(get()) }
   }
 
+  // --
+  private fun startRouter() {
+    startDragonRouter {
+      module(mDragonModule)
+    }
+  }
+
   private val mDragonModule = dragonModule {
-    registerActivity("dashboard", DashboardActivity::class.java)
+    registerActivity(Route.APP_SCHEME, Route.PAGE_DASHBOARD, DashboardActivity::class.java)
   }
 }
