@@ -8,7 +8,7 @@
 
     <variable
       name="actionBarViewModel"
-      type="id.kputro.hello.ui.components.actionbar.ActionBarViewModel" />
+      type="id.kputro.dragon.ui.components.actionbar.ActionBarViewModel" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

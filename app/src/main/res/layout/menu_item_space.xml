@@ -6,7 +6,7 @@
 
     <variable
       name="viewModel"
-      type="id.kputro.hello.ui.menu.space.MenuSpaceViewModel" />
+      type="id.kputro.dragon.ui.menu.space.MenuSpaceViewModel" />
   </data>
 
   <FrameLayout

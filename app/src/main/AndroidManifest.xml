@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
   xmlns:android="http://schemas.android.com/apk/res/android"
-  package="id.kputro.hello">
+  package="id.kputro.dragon">
 
   <application
-    android:name="id.kputro.hello.BootApp"
+    android:name="id.kputro.dragon.BootApp"
     android:allowBackup="true"
     android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
@@ -12,7 +12,7 @@
     android:supportsRtl="true"
     android:theme="@style/Theme.KevinPutro">
     <activity
-      android:name="id.kputro.hello.ui.main.MainActivity"
+      android:name="id.kputro.dragon.ui.main.MainActivity"
       android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
       </intent-filter>
     </activity>
     <activity
-      android:name="id.kputro.hello.ui.dashboard.DashboardActivity"
+      android:name="id.kputro.dragon.ui.dashboard.DashboardActivity"
       android:exported="false" />
   </application>
 

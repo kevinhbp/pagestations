@@ -14,5 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Kevin Putro"
 include ':app'
-include ':hello-core'
-include ':hello-dragon'
+include ':app-core'
+include ':dragon-material'

@@ -7,7 +7,7 @@
 
     <variable
       name="dashboardViewModel"
-      type="id.kputro.hello.ui.dashboard.DashboardViewModel" />
+      type="id.kputro.dragon.ui.dashboard.DashboardViewModel" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

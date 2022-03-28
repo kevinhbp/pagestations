@@ -8,11 +8,11 @@
 
     <variable
       name="dashboardViewModel"
-      type="id.kputro.hello.ui.dashboard.DashboardViewModel" />
+      type="id.kputro.dragon.ui.dashboard.DashboardViewModel" />
 
     <variable
       name="actionBarViewModel"
-      type="id.kputro.hello.ui.components.actionbar.ActionBarViewModel" />
+      type="id.kputro.dragon.ui.components.actionbar.ActionBarViewModel" />
   </data>
 
   <FrameLayout

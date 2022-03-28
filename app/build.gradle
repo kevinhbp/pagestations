@@ -100,11 +100,13 @@ dependencies {
   // Chuck Library
   debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
   releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+  // Material Dialogs
+  implementation 'com.afollestad.material-dialogs:core:3.3.0'
   // Test
   testImplementation "junit:junit:$mJunit"
   androidTestImplementation "androidx.test.ext:junit:$mExtJunit"
   androidTestImplementation "androidx.test.espresso:espresso-core:$mExpressoCore"
+  implementation project(':app-core')
   // Module
-  implementation project(':hello-core')
-  implementation project(':hello-dragon')
+  implementation project(':dragon-material')
 }

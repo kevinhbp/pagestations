@@ -1,0 +1,76 @@
+plugins {
+  id 'com.android.library'
+  id 'org.jetbrains.kotlin.android'
+}
+
+android {
+  compileSdk setup.compileSdkVersion
+  defaultConfig {
+    minSdk setup.minSdkVersion
+    targetSdk setup.targetSdkVersion
+    versionCode setup.versionCode
+    versionName "${setup.versionName}"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    consumerProguardFiles "consumer-rules.pro"
+  }
+  flavorDimensions "default"
+  productFlavors {
+    production {
+      resValue 'string', 'app_name', "${setup.appName}"
+      buildConfigField 'boolean', 'EnableCrashReport', 'true'
+      buildConfigField 'String', 'base_url', baseurl_production
+    }
+    nightly {
+      resValue 'string', 'app_name', "${setup.appName} - Nightly"
+      buildConfigField 'boolean', 'EnableCrashReport', 'false'
+      buildConfigField 'String', 'base_url', baseurl_production
+    }
+  }
+  buildTypes {
+    release {
+      debuggable false
+      minifyEnabled true
+      testCoverageEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+    debug {
+      debuggable true
+      minifyEnabled false
+      testCoverageEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+}
+
+dependencies {
+  // Android
+  implementation 'androidx.core:core-ktx:1.7.0'
+  // Reactive
+  implementation "io.reactivex.rxjava2:rxandroid:$mRxAndroid"
+  implementation "io.reactivex.rxjava2:rxkotlin:$mRxKotlin"
+  // Networking
+  implementation "com.squareup.retrofit2:retrofit:$mRetrofit"
+  implementation "com.squareup.retrofit2:converter-moshi:$mRetrofit"
+  implementation "com.squareup.okhttp3:okhttp:$mOkHttp"
+  implementation "com.squareup.okhttp3:logging-interceptor:$mOkHttp"
+  // Coroutine
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$mKotlinxCoroutines"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$mKotlinxCoroutines"
+  // Chuck Library
+  debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
+  releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+  // Hawk Library
+  implementation "com.orhanobut:hawk:2.0.1"
+  // Test
+  testImplementation "junit:junit:$mJunit"
+  androidTestImplementation "androidx.test.ext:junit:$mExtJunit"
+  androidTestImplementation "androidx.test.espresso:espresso-core:$mExpressoCore"
+}
