@@ -1,6 +1,5 @@
 package id.kputro.dragon.ui.base
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -8,8 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import id.kputro.dragon.component.dialog.setupDialogReference
-import id.kputro.dragon.router.tools.navigateTo
+import id.kputro.dragon.core.extension.replaceIfNull
+import id.kputro.dragon.material.component.dialog.setupDialogReference
+import id.kputro.dragon.material.component.dialog.showMessageDialog
+import id.kputro.dragon.material.router.tools.navigateTo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
@@ -56,7 +57,7 @@ abstract class BaseActivity<in T : ViewDataBinding>(private val mLayoutResId: In
   }
 
   override fun showMessage(title: String?, message: String, onDismiss: (() -> Unit)?) {
-
+    showMessageDialog(title.replaceIfNull(), message, onDismiss)
   }
 
   override fun showToast(message: String, doLong: Boolean) {

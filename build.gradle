@@ -3,7 +3,7 @@ buildscript {
   ext {
     setup = [
         appName: "Kevin Putro",
-        applicationId: "id.kputro.hello",
+        applicationId: "id.kputro.dragon",
         compileSdkVersion: 31,
         minSdkVersion: 21,
         targetSdkVersion: 31,

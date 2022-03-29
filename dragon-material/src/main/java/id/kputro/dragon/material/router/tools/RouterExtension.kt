@@ -1,12 +1,12 @@
-package id.kputro.dragon.router.tools
+package id.kputro.dragon.material.router.tools
 
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import androidx.core.content.ContextCompat
-import id.kputro.dragon.DragonApplication
-import id.kputro.dragon.LOG_TAG
+import id.kputro.dragon.material.DragonApplication
+import id.kputro.dragon.material.LOG_TAG
 import java.net.URLEncoder
 
 fun Context.navigateTo(target: String) {

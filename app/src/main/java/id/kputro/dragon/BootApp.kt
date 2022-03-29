@@ -1,10 +1,11 @@
 package id.kputro.dragon
 
 import android.app.Application
-import id.kputro.dragon.router.module.routerModule
+import id.kputro.dragon.material.router.module.routerModule
 import id.kputro.dragon.core.datastore.users.UserDatastore
 import id.kputro.dragon.dimodule.ContentService
 import id.kputro.dragon.dimodule.ContentServiceImpl
+import id.kputro.dragon.material.startDragonApplication
 import id.kputro.dragon.ui.components.actionbar.ActionBarViewModel
 import id.kputro.dragon.ui.dashboard.DashboardActivity
 import id.kputro.dragon.ui.dashboard.DashboardViewModel

@@ -1,12 +1,12 @@
-package id.kputro.dragon.router
+package id.kputro.dragon.material.router
 
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import androidx.core.content.ContextCompat
-import id.kputro.dragon.LOG_TAG
-import id.kputro.dragon.router.module.RouterModule
+import id.kputro.dragon.material.LOG_TAG
+import id.kputro.dragon.material.router.module.RouterModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
@@ -102,7 +102,7 @@ class DragonRouter {
     private lateinit var app: DragonRouter
 
     fun get(): DragonRouter {
-      if (!::app.isInitialized) {
+      if (!Companion::app.isInitialized) {
         throw RuntimeException("Dragon Router is not started..")
       }
       return app

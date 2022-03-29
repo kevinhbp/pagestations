@@ -1,4 +1,4 @@
-package id.kputro.dragon.router.module
+package id.kputro.dragon.material.router.module
 
 typealias RouterModuleDeclaration = RouterModule.() -> Unit
 

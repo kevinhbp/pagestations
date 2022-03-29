@@ -1,14 +1,21 @@
-package id.kputro.dragon.component.dialog
+package id.kputro.dragon.material.component.dialog
 
 import android.app.Activity
 import android.util.Log
 import android.view.Gravity
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Lifecycle.Event.ON_PAUSE
 import androidx.lifecycle.Lifecycle.Event.ON_RESUME
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import id.kputro.dragon.LOG_TAG
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.customview.customView
+import id.kputro.dragon.material.LOG_TAG
+import id.kputro.dragon.material.R.id
+import id.kputro.dragon.material.R.layout
+import id.kputro.dragon.material.R.string
 import java.lang.Exception
 import java.lang.ref.WeakReference
 
@@ -26,6 +33,8 @@ class DragonDialog : LifecycleObserver {
 
   private var mToast: Toast? = null
 
+  private var mMessageDialog: MaterialDialog? = null
+
   private var mPaused: Boolean = false
 
   // --
@@ -33,7 +42,7 @@ class DragonDialog : LifecycleObserver {
     mReference = reference
   }
 
-  fun getReference(): WeakReference<Activity>? {
+  private fun getReference(): WeakReference<Activity>? {
     if (mReference == null) {
       Log.e(LOG_TAG, "Activity Reference is not set, set the reference first on onCreate")
     }
@@ -44,8 +53,36 @@ class DragonDialog : LifecycleObserver {
   fun showMessage(title: String, message: String, onDismiss: (() -> Unit)?) {
     if (title.isEmpty() && message.isEmpty()) return
     if (mPaused) return
-    val mContext = getReference()?.get() ?: return
-    // todo
+    val mActivity = getReference()?.get() ?: return
+    val mView = mActivity.layoutInflater.inflate(layout.dm_dialog_default, null, false)
+    mView.getView<View>(id.vw_spc).visibility = View.GONE
+    mView.getView<TextView>(id.btn_negative).visibility = View.GONE
+    mView.getView<TextView>(id.btn_positive).visibility = View.VISIBLE
+    mView.getView<TextView>(id.btn_positive).text = mActivity.getString(string.dm_ok)
+    mView.getView<TextView>(id.tv_title).text = title
+    mView.getView<TextView>(id.tv_body).text = message
+    mView.getView<TextView>(id.tv_title).visibility = if (title.isEmpty()) View.GONE else View.VISIBLE
+    mView.getView<TextView>(id.btn_positive).setOnClickListener {
+      mMessageDialog?.dismiss()
+      onDismiss?.invoke()
+    }
+    mView.getView<TextView>(id.btn_negative).setOnClickListener {
+      mMessageDialog?.dismiss()
+      onDismiss?.invoke()
+    }
+    mMessageDialog?.dismiss()
+    mMessageDialog = MaterialDialog(mActivity)
+      .customView(view = mView, dialogWrapContent = false)
+      .cancelable(true)
+    mMessageDialog?.cancelOnTouchOutside(true)
+    mMessageDialog?.setOnCancelListener {
+      onDismiss?.invoke()
+    }
+    try {
+      mMessageDialog?.show()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
   fun showConfirmation(
@@ -95,7 +132,7 @@ class DragonDialog : LifecycleObserver {
     private lateinit var app: DragonDialog
 
     fun get(): DragonDialog {
-      if (!::app.isInitialized) {
+      if (!Companion::app.isInitialized) {
         throw RuntimeException("Dragon Dialog is not started..")
       }
       return app
@@ -105,5 +142,10 @@ class DragonDialog : LifecycleObserver {
       app = DragonDialog()
       return app
     }
+  }
+
+  // --
+  private fun <T: View> View.getView(id: Int): T {
+    return this.findViewById(id)
   }
 }

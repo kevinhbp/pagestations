@@ -1,10 +1,10 @@
-package id.kputro.dragon
+package id.kputro.dragon.material
 
-import id.kputro.dragon.component.dialog.DragonDialog
-import id.kputro.dragon.component.dialog.initDragonDialog
-import id.kputro.dragon.router.DragonRouter
-import id.kputro.dragon.router.initDragonRouter
-import id.kputro.dragon.router.module.RouterModule
+import id.kputro.dragon.material.component.dialog.DragonDialog
+import id.kputro.dragon.material.component.dialog.initDragonDialog
+import id.kputro.dragon.material.router.DragonRouter
+import id.kputro.dragon.material.router.initDragonRouter
+import id.kputro.dragon.material.router.module.RouterModule
 
 /**
  * Dragon Router Application

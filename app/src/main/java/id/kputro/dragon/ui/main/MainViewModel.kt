@@ -51,9 +51,10 @@ class MainViewModel(
     val mMemberInfo = userDatastore.getMemberInfo()
     if (mMemberInfo.fullname.isEmpty()) {
       this.textVersion.set("Fullname is empty")
+      this.view.showMessage("Hi there", "Nice to meet you.\nWhat is your name?", null)
       return
     }
 
-    this.view.delayToDashboardAfter()
+    // this.view.delayToDashboardAfter()
   }
 }
