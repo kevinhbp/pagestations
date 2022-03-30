@@ -1,5 +1,6 @@
 package id.kputro.dragon.material.component.dialog
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.util.Log
 import android.view.Gravity
@@ -13,6 +14,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import id.kputro.dragon.material.LOG_TAG
+import id.kputro.dragon.material.R.dimen
 import id.kputro.dragon.material.R.id
 import id.kputro.dragon.material.R.layout
 import id.kputro.dragon.material.R.string
@@ -50,12 +52,13 @@ class DragonDialog : LifecycleObserver {
   }
 
   // --
+  @SuppressLint("InflateParams")
   fun showMessage(title: String, message: String, onDismiss: (() -> Unit)?) {
     if (title.isEmpty() && message.isEmpty()) return
     if (mPaused) return
     val mActivity = getReference()?.get() ?: return
     val mView = mActivity.layoutInflater.inflate(layout.dm_dialog_default, null, false)
-    mView.getView<View>(id.vw_spc).visibility = View.GONE
+    mView.getView<View>(id.vw_spc).visibility = View.VISIBLE
     mView.getView<TextView>(id.btn_negative).visibility = View.GONE
     mView.getView<TextView>(id.btn_positive).visibility = View.VISIBLE
     mView.getView<TextView>(id.btn_positive).text = mActivity.getString(string.dm_ok)
@@ -72,9 +75,10 @@ class DragonDialog : LifecycleObserver {
     }
     mMessageDialog?.dismiss()
     mMessageDialog = MaterialDialog(mActivity)
-      .customView(view = mView, dialogWrapContent = false)
-      .cancelable(true)
-    mMessageDialog?.cancelOnTouchOutside(true)
+      .customView(view = mView, dialogWrapContent = false, noVerticalPadding = true)
+      .cancelable(false)
+      .cancelOnTouchOutside(false)
+      .cornerRadius(res = dimen.dm_radius_small)
     mMessageDialog?.setOnCancelListener {
       onDismiss?.invoke()
     }
@@ -85,6 +89,7 @@ class DragonDialog : LifecycleObserver {
     }
   }
 
+  @SuppressLint("InflateParams")
   fun showConfirmation(
     title: String,
     message: String,
@@ -95,8 +100,35 @@ class DragonDialog : LifecycleObserver {
     if (title.isEmpty() && message.isEmpty()) return
     if (positiveButton.isEmpty() && negativeButton.isEmpty()) return
     if (mPaused) return
-    val mContext = getReference()?.get() ?: return
-    // todo
+    val mActivity = getReference()?.get() ?: return
+    val mView = mActivity.layoutInflater.inflate(layout.dm_dialog_default, null, false)
+    mView.getView<View>(id.vw_spc).visibility = View.GONE
+    mView.getView<TextView>(id.btn_negative).visibility = View.VISIBLE
+    mView.getView<TextView>(id.btn_positive).visibility = View.VISIBLE
+    mView.getView<TextView>(id.btn_negative).text = negativeButton
+    mView.getView<TextView>(id.btn_positive).text = positiveButton
+    mView.getView<TextView>(id.tv_title).text = title
+    mView.getView<TextView>(id.tv_body).text = message
+    mView.getView<TextView>(id.tv_title).visibility = if (title.isEmpty()) View.GONE else View.VISIBLE
+    mView.getView<TextView>(id.btn_positive).setOnClickListener {
+      mMessageDialog?.dismiss()
+      onConfirmed.invoke(true)
+    }
+    mView.getView<TextView>(id.btn_negative).setOnClickListener {
+      mMessageDialog?.dismiss()
+      onConfirmed.invoke(false)
+    }
+    mMessageDialog?.dismiss()
+    mMessageDialog = MaterialDialog(mActivity)
+      .customView(view = mView, dialogWrapContent = false, noVerticalPadding = true)
+      .cancelable(false)
+      .cancelOnTouchOutside(false)
+      .cornerRadius(res = dimen.dm_radius_small)
+    try {
+      mMessageDialog?.show()
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
   }
 
   fun showToast(message: String, doLong: Boolean) {

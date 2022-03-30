@@ -1,10 +1,11 @@
 package id.kputro.dragon
 
 import android.app.Application
-import id.kputro.dragon.material.router.module.routerModule
 import id.kputro.dragon.core.datastore.users.UserDatastore
+import id.kputro.dragon.core.startCoreApplication
 import id.kputro.dragon.dimodule.ContentService
 import id.kputro.dragon.dimodule.ContentServiceImpl
+import id.kputro.dragon.material.router.module.routerModule
 import id.kputro.dragon.material.startDragonApplication
 import id.kputro.dragon.ui.components.actionbar.ActionBarViewModel
 import id.kputro.dragon.ui.dashboard.DashboardActivity
@@ -30,6 +31,7 @@ class BootApp : Application() {
   override fun onCreate() {
     super.onCreate()
     startKoin()
+    startCoreApp()
     startDragonApp()
   }
 
@@ -49,6 +51,13 @@ class BootApp : Application() {
     viewModel { ActionBarViewModel() }
     viewModel { MainViewModel(get(), get()) }
     viewModel { DashboardViewModel(get()) }
+  }
+
+  // --
+  private fun startCoreApp() {
+    startCoreApplication {
+      initiateLibrary(this@BootApp)
+    }
   }
 
   // --

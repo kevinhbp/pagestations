@@ -39,7 +39,7 @@ class MainViewModel(
   override fun start() {
     if (!::view.isInitialized) return
     initDefault()
-    checkUsername()
+    goToDashboard()
   }
 
   // --
@@ -47,14 +47,7 @@ class MainViewModel(
     textVersion.set(contentService.getAppVersion().getVersionText())
   }
 
-  private fun checkUsername() {
-    val mMemberInfo = userDatastore.getMemberInfo()
-    if (mMemberInfo.fullname.isEmpty()) {
-      this.textVersion.set("Fullname is empty")
-      this.view.showMessage("Hi there", "Nice to meet you.\nWhat is your name?", null)
-      return
-    }
-
-    // this.view.delayToDashboardAfter()
+  private fun goToDashboard() {
+    this.view.delayToDashboardAfter()
   }
 }
