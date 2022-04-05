@@ -18,8 +18,7 @@
     <androidx.cardview.widget.CardView
       android:layout_width="match_parent"
       android:layout_height="@dimen/fo_size_menu_header"
-      android:layout_marginHorizontal="@dimen/fo_spacing_l"
-      android:layout_marginVertical="@dimen/fo_spacing_s"
+      android:layout_marginTop="@dimen/fo_spacing_neg_xl"
       app:cardBackgroundColor="@color/white"
       app:cardCornerRadius="@dimen/fo_radius_default">
 
@@ -27,6 +26,7 @@
         android:id="@+id/iv_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dm_spacing_xl"
         android:scaleType="centerCrop"
         app:setImage="@{menuHeaderViewModel.imageBackground}"
         tools:src="@drawable/bg_illustration_01" />
@@ -38,7 +38,8 @@
 
       <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dm_spacing_xl">
 
         <View
           android:id="@+id/vw_anchor"

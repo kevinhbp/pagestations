@@ -12,6 +12,7 @@ import id.kputro.dragon.entity.ActionBarBuilder
 import id.kputro.dragon.entity.ButtonBuilder
 import id.kputro.dragon.entity.MenuItemModel
 import id.kputro.dragon.extension.MenuType
+import id.kputro.dragon.material.component.view.getParallaxListener
 import id.kputro.dragon.ui.base.BaseActivity
 import id.kputro.dragon.ui.base.BaseAdapterListener.AppLinkListener
 import id.kputro.dragon.ui.components.actionbar.ActionBarContract
@@ -74,7 +75,6 @@ class DashboardActivity : BaseActivity<DashboardActivityBinding>(layout.dashboar
     val mAppName = getString(string.app_name)
     return ActionBarBuilder()
       .withText(ButtonBuilder(mAppName, "", null, null))
-      .withLogo(ButtonBuilder("", "", drawable.ic_logo, null))
       .withButtonA(ButtonBuilder("", "", drawable.ic_settings, null))
       .withButtonB(ButtonBuilder("", "", drawable.ic_notifications, null))
   }
@@ -104,5 +104,9 @@ class DashboardActivity : BaseActivity<DashboardActivityBinding>(layout.dashboar
         goTo(target)
       }
     }
+    actionBarViewModel.alphaBackground.set(0f)
+    /*mRecyclerView.getParallaxListener { _, alpha ->
+      actionBarViewModel.alphaBackground.set(alpha)
+    }*/
   }
 }

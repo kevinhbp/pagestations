@@ -2,18 +2,19 @@ package id.kputro.dragon.ui.components.actionbar
 
 import android.view.View
 import androidx.databinding.ObservableField
+import androidx.databinding.ObservableFloat
 import androidx.databinding.ObservableInt
 import androidx.lifecycle.ViewModel
 import id.kputro.dragon.core.extension.isFilled
 import id.kputro.dragon.entity.ActionBarBuilder
 import id.kputro.dragon.ui.base.BaseView
+import id.kputro.dragon.R.drawable
 import id.kputro.dragon.ui.base.BaseViewModel
 import id.kputro.dragon.ui.components.actionbar.ActionBarContract.ActionBarViewContract
 
 interface ActionBarContract {
   interface ActionBarViewModelContract : BaseViewModel<ActionBarViewContract> {
-    fun onClickLogo(v: View?)
-    fun onClickText(v: View?)
+    fun onClickButtonBack(v: View?)
     fun onClickButtonA(v: View?)
     fun onClickButtonB(v: View?)
   }
@@ -26,7 +27,7 @@ interface ActionBarContract {
 class ActionBarViewModel : ViewModel(),
   ActionBarContract.ActionBarViewModelContract {
 
-  val imageLogo = ObservableInt()
+  val imageButtonBack = ObservableInt()
   val imageButtonA = ObservableInt()
   val imageButtonB = ObservableInt()
 
@@ -34,6 +35,10 @@ class ActionBarViewModel : ViewModel(),
   val textSubtitle = ObservableField("")
   val textButtonA = ObservableField("")
   val textButtonB = ObservableField("")
+
+  val visibilityButtonBack = ObservableInt(View.GONE)
+
+  val alphaBackground = ObservableFloat(0f)
 
   private lateinit var view: ActionBarViewContract
   private lateinit var builder: ActionBarBuilder
@@ -46,7 +51,7 @@ class ActionBarViewModel : ViewModel(),
   override fun start() {
     if (!::builder.isInitialized) return
     setText(builder)
-    setLogo(builder)
+    setButtonBack(builder)
     setButtonA(builder)
     setButtonB(builder)
   }
@@ -58,10 +63,14 @@ class ActionBarViewModel : ViewModel(),
     this.textSubtitle.set(mText.subtitle)
   }
 
-  private fun setLogo(builder: ActionBarBuilder) {
-    val mLogo = builder.logo ?: return
-    val mImage = mLogo.imageDrawable ?: return
-    this.imageLogo.set(mImage)
+  private fun setButtonBack(builder: ActionBarBuilder) {
+    visibilityButtonBack.set(View.GONE)
+    imageButtonBack.set(drawable.ic_arrow_left)
+    val mButton = builder.buttonBack ?: return
+    if (mButton.imageDrawable != null) {
+      imageButtonBack.set(mButton.imageDrawable)
+    }
+    visibilityButtonBack.set(View.VISIBLE)
   }
 
   private fun setButtonA(builder: ActionBarBuilder) {
@@ -85,14 +94,9 @@ class ActionBarViewModel : ViewModel(),
   }
 
   // --
-  override fun onClickLogo(v: View?) {
+  override fun onClickButtonBack(v: View?) {
     if (!::builder.isInitialized) return
-    builder.logo?.callback?.invoke()
-  }
-
-  override fun onClickText(v: View?) {
-    if (!::builder.isInitialized) return
-    builder.text?.callback?.invoke()
+    builder.buttonBack?.callback?.invoke()
   }
 
   override fun onClickButtonA(v: View?) {

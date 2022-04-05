@@ -3,18 +3,18 @@ package id.kputro.dragon.entity
 import java.io.Serializable
 
 class ActionBarBuilder : Serializable {
+  var buttonBack: ButtonBuilder? = null
   var text: ButtonBuilder? = null
-  var logo: ButtonBuilder? = null
   var buttonA: ButtonBuilder? = null
   var buttonB: ButtonBuilder? = null
 
-  fun withText(mText: ButtonBuilder): ActionBarBuilder {
-    this.text = mText
+  fun withButtonBack(mButton: ButtonBuilder): ActionBarBuilder {
+    this.buttonBack = mButton
     return this
   }
 
-  fun withLogo(mLogo: ButtonBuilder): ActionBarBuilder {
-    this.logo = mLogo
+  fun withText(mText: ButtonBuilder): ActionBarBuilder {
+    this.text = mText
     return this
   }
 
@@ -27,4 +27,8 @@ class ActionBarBuilder : Serializable {
     this.buttonB = mButton
     return this
   }
+}
+
+interface ActionBarBackgroundAlphaInterface {
+  fun setAlpha(mAlpha: Float)
 }

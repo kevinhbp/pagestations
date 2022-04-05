@@ -37,7 +37,6 @@ class DashboardViewModel(private val contentService: ContentService) : ViewModel
   // --
   private fun initMenu() {
     val mMenu = ArrayList<MenuItemModel>()
-    mMenu.add(MenuItemModel.space(M))
     mMenu.add(MenuItemModel.header("Hello", "Kevin Putro"))
     this.view.setMenu(mMenu)
   }
