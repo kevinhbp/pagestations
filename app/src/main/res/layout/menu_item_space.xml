@@ -15,28 +15,33 @@
 
     <View
       android:layout_width="match_parent"
+      android:layout_height="?actionBarSize"
+      android:visibility="@{viewModel.model.visibilitySpaceABS}" />
+
+    <View
+      android:layout_width="match_parent"
       android:layout_height="@dimen/fo_spacing_xxl"
-      android:visibility="@{viewModel.visibilitySpaceXXL}" />
+      android:visibility="@{viewModel.model.visibilitySpaceXXL}" />
 
     <View
       android:layout_width="match_parent"
       android:layout_height="@dimen/fo_spacing_xl"
-      android:visibility="@{viewModel.visibilitySpaceXL}" />
+      android:visibility="@{viewModel.model.visibilitySpaceXL}" />
 
     <View
       android:layout_width="match_parent"
       android:layout_height="@dimen/fo_spacing_l"
-      android:visibility="@{viewModel.visibilitySpaceL}" />
+      android:visibility="@{viewModel.model.visibilitySpaceL}" />
 
     <View
       android:layout_width="match_parent"
       android:layout_height="@dimen/fo_spacing_m"
-      android:visibility="@{viewModel.visibilitySpaceM}" />
+      android:visibility="@{viewModel.model.visibilitySpaceM}" />
 
     <View
       android:layout_width="match_parent"
       android:layout_height="@dimen/fo_spacing_s"
-      android:visibility="@{viewModel.visibilitySpaceS}" />
+      android:visibility="@{viewModel.model.visibilitySpaceS}" />
 
   </FrameLayout>
 </layout>

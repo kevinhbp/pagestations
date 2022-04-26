@@ -16,3 +16,4 @@ rootProject.name = "Kevin Putro"
 include ':app'
 include ':app-core'
 include ':dragon-material'
+include ':pagestations'

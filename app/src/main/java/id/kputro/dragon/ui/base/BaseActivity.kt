@@ -10,7 +10,7 @@ import androidx.databinding.ViewDataBinding
 import id.kputro.dragon.core.extension.replaceIfNull
 import id.kputro.dragon.material.component.dialog.setupDialogReference
 import id.kputro.dragon.material.component.dialog.showMessageDialog
-import id.kputro.dragon.material.router.tools.navigateTo
+import id.kputro.pagestations.dsl.navigateTo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope

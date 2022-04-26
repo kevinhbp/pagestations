@@ -2,9 +2,6 @@ package id.kputro.dragon.material
 
 import id.kputro.dragon.material.component.dialog.DragonDialog
 import id.kputro.dragon.material.component.dialog.initDragonDialog
-import id.kputro.dragon.material.router.DragonRouter
-import id.kputro.dragon.material.router.initDragonRouter
-import id.kputro.dragon.material.router.module.RouterModule
 
 /**
  * Dragon Router Application
@@ -24,13 +21,7 @@ fun startDragonApplication(appDeclaration: DragonAppDeclaration): DragonApplicat
 
 class DragonApplication {
 
-  val mRouter: DragonRouter = initDragonRouter { }
-
-  val mDialog: DragonDialog = initDragonDialog {  }
-
-  fun routerModule(mModule: RouterModule): DragonRouter {
-    return mRouter.module(mModule)
-  }
+  val mDialog: DragonDialog = initDragonDialog { }
 
   companion object {
     private lateinit var app: DragonApplication

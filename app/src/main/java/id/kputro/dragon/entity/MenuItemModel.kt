@@ -1,8 +1,10 @@
 package id.kputro.dragon.entity
 
+import android.view.View
 import androidx.annotation.DrawableRes
 import id.kputro.dragon.extension.MenuType
 import id.kputro.dragon.R.drawable
+import id.kputro.dragon.entity.SpaceSize.*
 import java.io.Serializable
 
 data class MenuItemModel(
@@ -19,7 +21,7 @@ data class MenuItemModel(
   @DrawableRes
   var backgroundResId: Int? = null
 
-  var spaceSize: SpaceSize = SpaceSize.S
+  var spaceSize: SpaceSize = S
 
   companion object {
     fun space(mSpaceSize: SpaceSize) : MenuItemModel {
@@ -37,5 +39,31 @@ data class MenuItemModel(
       }
     }
   }
+
+  // region Space
+  fun getVisibilitySpaceABS(): Int {
+    return if (spaceSize == ACTION_BAR_SIZE) View.VISIBLE else View.GONE
+  }
+
+  fun getVisibilitySpaceXXL(): Int {
+    return if (spaceSize == XXL) View.VISIBLE else View.GONE
+  }
+
+  fun getVisibilitySpaceXL(): Int {
+    return if (spaceSize == XL) View.VISIBLE else View.GONE
+  }
+
+  fun getVisibilitySpaceL(): Int {
+    return if (spaceSize == L) View.VISIBLE else View.GONE
+  }
+
+  fun getVisibilitySpaceM(): Int {
+    return if (spaceSize == M) View.VISIBLE else View.GONE
+  }
+
+  fun getVisibilitySpaceS(): Int {
+    return if (spaceSize == S) View.VISIBLE else View.GONE
+  }
+  // endregion
 }
 

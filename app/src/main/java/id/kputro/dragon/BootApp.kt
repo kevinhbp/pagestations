@@ -5,13 +5,13 @@ import id.kputro.dragon.core.datastore.users.UserDatastore
 import id.kputro.dragon.core.startCoreApplication
 import id.kputro.dragon.dimodule.ContentService
 import id.kputro.dragon.dimodule.ContentServiceImpl
-import id.kputro.dragon.material.router.module.routerModule
 import id.kputro.dragon.material.startDragonApplication
 import id.kputro.dragon.ui.components.actionbar.ActionBarViewModel
 import id.kputro.dragon.ui.dashboard.DashboardActivity
 import id.kputro.dragon.ui.dashboard.DashboardViewModel
 import id.kputro.dragon.ui.main.MainViewModel
 import id.kputro.dragon.utils.applink.Route
+import id.kputro.pagestations.dsl.startPageStationsModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -33,6 +33,7 @@ class BootApp : Application() {
     startKoin()
     startCoreApp()
     startDragonApp()
+    startPageStations()
   }
 
   // --
@@ -63,11 +64,21 @@ class BootApp : Application() {
   // --
   private fun startDragonApp() {
     startDragonApplication {
-      routerModule(mRouterModule)
+      // routerModule(mRouterModule)
     }
   }
 
-  private val mRouterModule = routerModule {
+  /*private val mRouterModule = routerModule {
     registerActivity(Route.APP_SCHEME, Route.PAGE_DASHBOARD, DashboardActivity::class.java)
+  }*/
+
+  private fun startPageStations() {
+    startPageStationsModule {
+      enableLog()
+
+      registerActivity(Route.APP_SCHEME, Route.PAGE_DASHBOARD, DashboardActivity::class.java)
+
+      printAllPossibleRoute()
+    }
   }
 }

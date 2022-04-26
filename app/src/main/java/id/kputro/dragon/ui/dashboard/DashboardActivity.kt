@@ -3,6 +3,7 @@ package id.kputro.dragon.ui.dashboard
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import id.kputro.dragon.R.drawable
 import id.kputro.dragon.R.layout
@@ -104,7 +105,6 @@ class DashboardActivity : BaseActivity<DashboardActivityBinding>(layout.dashboar
         goTo(target)
       }
     }
-    actionBarViewModel.alphaBackground.set(0f)
     /*mRecyclerView.getParallaxListener { _, alpha ->
       actionBarViewModel.alphaBackground.set(alpha)
     }*/

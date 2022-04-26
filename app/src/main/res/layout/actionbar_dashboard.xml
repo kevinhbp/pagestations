@@ -45,7 +45,7 @@
         android:ellipsize="end"
         android:gravity="center"
         android:lines="1"
-        android:text="@{actionBarViewModel.textTitle}"
+        android:text="@{actionBarViewModel.model.textTitle}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,14 +67,14 @@
           android:background="@drawable/bg_button_ripple_default"
           android:clickable="true"
           android:focusable="true"
-          android:onClick="@{actionBarViewModel::onClickButtonB}">
+          android:onClick="@{actionBarViewModel.model::onClickButtonB}">
 
           <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="@dimen/fo_size_button_s"
             android:layout_height="@dimen/fo_size_button_s"
             android:layout_gravity="center"
             android:scaleType="centerInside"
-            app:setImage="@{actionBarViewModel.imageButtonB}"
+            app:setImage="@{actionBarViewModel.model.imageButtonB}"
             tools:src="@drawable/ic_notifications" />
 
         </FrameLayout>
@@ -86,14 +86,14 @@
           android:background="@drawable/bg_button_ripple_default"
           android:clickable="true"
           android:focusable="true"
-          android:onClick="@{actionBarViewModel::onClickButtonA}">
+          android:onClick="@{actionBarViewModel.model::onClickButtonA}">
 
           <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="@dimen/fo_size_button_s"
             android:layout_height="@dimen/fo_size_button_s"
             android:layout_gravity="center"
             android:scaleType="centerInside"
-            app:setImage="@{actionBarViewModel.imageButtonA}"
+            app:setImage="@{actionBarViewModel.model.imageButtonA}"
             tools:src="@drawable/ic_settings" />
 
         </FrameLayout>

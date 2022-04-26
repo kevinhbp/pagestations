@@ -109,4 +109,5 @@ dependencies {
   implementation project(':app-core')
   // Module
   implementation project(':dragon-material')
+  implementation project(':pagestations')
 }
