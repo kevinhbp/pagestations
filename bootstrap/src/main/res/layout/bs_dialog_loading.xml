@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:background="@drawable/bs_dialog_default_bg"
+  android:orientation="horizontal"
+  tools:layout_margin="@dimen/bs_spacing_xl">
+
+  <FrameLayout
+    android:layout_width="@dimen/bs_size_100"
+    android:layout_height="@dimen/bs_size_80">
+
+    <ProgressBar
+      android:layout_width="@dimen/bs_size_40"
+      android:layout_height="@dimen/bs_size_40"
+      android:layout_gravity="center"
+      android:indeterminate="true" />
+
+  </FrameLayout>
+
+  <TextView
+    android:id="@+id/tv_body"
+    style="@style/BsTextView.Small"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/bs_size_80"
+    android:ellipsize="end"
+    android:gravity="center_vertical"
+    android:maxLines="4"
+    android:paddingHorizontal="@dimen/bs_spacing_l"
+    android:paddingVertical="@dimen/bs_spacing_m"
+    android:textColor="@color/bs_text_black_3"
+    tools:text="Dialog body message\nwith second line\nand third line\nalso with fourth line." />
+
+</LinearLayout>

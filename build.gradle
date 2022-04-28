@@ -10,6 +10,26 @@ buildscript {
         versionCode: 10000,
         versionName: "1.00",
     ]
+    psSetup = [
+        appName: "Page Stations",
+        applicationId: "id.kputro.pagestations",
+        compileSdkVersion: 31,
+        minSdkVersion: 16,
+        targetSdkVersion: 31,
+        versionCode: 100000,
+        versionName: "1.00",
+        resourcePrefix: "ps_"
+    ]
+    bsSetup = [
+        appName: "Bootstrap",
+        applicationId: "id.kputro.bootstrap",
+        compileSdkVersion: 31,
+        minSdkVersion: 21,
+        targetSdkVersion: 31,
+        versionCode: 10000,
+        versionName: "1.00",
+        resourcePrefix: "bs_"
+    ]
     mCoreKtx = '1.7.0'
     mAppCompat = '1.4.1'
     mBrowser = '1.4.0'

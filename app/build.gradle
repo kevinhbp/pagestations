@@ -108,6 +108,6 @@ dependencies {
   androidTestImplementation "androidx.test.espresso:espresso-core:$mExpressoCore"
   implementation project(':app-core')
   // Module
-  implementation project(':dragon-material')
+  implementation project(':bootstrap')
   implementation project(':pagestations')
 }

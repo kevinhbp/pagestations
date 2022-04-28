@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!--  Region Text View  -->
+  <style name="BsTextView">
+    <item name="android:textColor">@color/bs_text_black_1</item>
+    <item name="android:textSize">@dimen/bs_font_normal</item>
+    <item name="android:fontFamily">@font/montserrat_regular</item>
+    <item name="android:includeFontPadding">false</item>
+  </style>
+
+  <style name="BsTextViewBold">
+    <item name="android:textColor">@color/bs_text_black_1</item>
+    <item name="android:textSize">@dimen/bs_font_normal</item>
+    <item name="android:fontFamily">@font/montserrat_regular</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:includeFontPadding">false</item>
+  </style>
+
+  <style name="BsTextViewItalic">
+    <item name="android:textColor">@color/bs_text_black_1</item>
+    <item name="android:textSize">@dimen/bs_font_normal</item>
+    <item name="android:fontFamily">@font/montserrat_italic</item>
+    <item name="android:includeFontPadding">false</item>
+  </style>
+
+  <style name="BsTextViewBoldItalic">
+    <item name="android:textColor">@color/bs_text_black_1</item>
+    <item name="android:textSize">@dimen/bs_font_normal</item>
+    <item name="android:fontFamily">@font/montserrat_italic</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:includeFontPadding">false</item>
+  </style>
+
+  <style name="BsTextView.Micro">
+    <item name="android:textSize">@dimen/bs_font_micro</item>
+  </style>
+
+  <style name="BsTextView.Tiny">
+    <item name="android:textSize">@dimen/bs_font_tiny</item>
+  </style>
+
+  <style name="BsTextView.Small">
+    <item name="android:textSize">@dimen/bs_font_small</item>
+  </style>
+
+  <style name="BsTextView.Large">
+    <item name="android:textSize">@dimen/bs_font_large</item>
+  </style>
+
+  <style name="BsTextView.ExtraLarge">
+    <item name="android:textSize">@dimen/bs_font_xlarge</item>
+  </style>
+
+  <style name="BsTextViewBold.Small">
+    <item name="android:textSize">@dimen/bs_font_small</item>
+  </style>
+
+  <style name="BsTextViewBold.Large">
+    <item name="android:textSize">@dimen/bs_font_large</item>
+  </style>
+
+  <style name="BsTextViewBold.ExtraLarge">
+    <item name="android:textSize">@dimen/bs_font_xlarge</item>
+  </style>
+
+  <!-- Region Button -->
+  <style name="BsButton">
+    <item name="android:textColor">@color/bs_text_black_2</item>
+    <item name="android:textSize">@dimen/bs_font_small</item>
+    <item name="android:fontFamily">@font/montserrat_regular</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:includeFontPadding">false</item>
+    <item name="android:gravity">center</item>
+  </style>
+
+  <style name="BsButton.Primary" parent="BsButton">
+    <item name="android:textColor">@color/bs_white</item>
+    <item name="android:background">@drawable/bs_button_primary_bg</item>
+  </style>
+
+  <style name="BsButton.Secondary" parent="BsButton">
+    <item name="android:textColor">@color/bs_primary</item>
+    <item name="android:background">@drawable/bs_button_secondary_bg</item>
+  </style>
+</resources>

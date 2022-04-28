@@ -34,6 +34,7 @@ class DashboardViewModel(private val contentService: ContentService) : ViewModel
 
   override fun start() {
     initMenu()
+    this.view.showLoading(true)
   }
 
   // --

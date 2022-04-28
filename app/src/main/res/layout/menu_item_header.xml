@@ -26,7 +26,7 @@
         android:id="@+id/iv_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dm_spacing_xl"
+        android:layout_marginTop="@dimen/bs_spacing_xl"
         android:scaleType="centerCrop"
         app:setImage="@{menuHeaderViewModel.imageBackground}"
         tools:src="@drawable/bg_illustration_01" />
@@ -39,7 +39,7 @@
       <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dm_spacing_xl">
+        android:layout_marginTop="@dimen/bs_spacing_xl">
 
         <View
           android:id="@+id/vw_anchor"

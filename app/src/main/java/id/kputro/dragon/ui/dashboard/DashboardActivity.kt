@@ -3,7 +3,6 @@ package id.kputro.dragon.ui.dashboard
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import id.kputro.dragon.R.drawable
 import id.kputro.dragon.R.layout
@@ -13,7 +12,6 @@ import id.kputro.dragon.entity.ActionBarBuilder
 import id.kputro.dragon.entity.ButtonBuilder
 import id.kputro.dragon.entity.MenuItemModel
 import id.kputro.dragon.extension.MenuType
-import id.kputro.dragon.material.component.view.getParallaxListener
 import id.kputro.dragon.ui.base.BaseActivity
 import id.kputro.dragon.ui.base.BaseAdapterListener.AppLinkListener
 import id.kputro.dragon.ui.components.actionbar.ActionBarContract

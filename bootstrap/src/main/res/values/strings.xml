@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="bs_ok">OK</string>
+  <string name="bs_cancel">Cancel</string>
+  <string name="bs_dismiss">Dismiss</string>
+  <string name="bs_please_wait">Please Wait</string>
+  <string name="bs_loading">Loading</string>
+</resources>

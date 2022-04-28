@@ -1,11 +1,11 @@
 package id.kputro.dragon
 
 import android.app.Application
+import id.kputro.bootstrap.startBootstrapModule
 import id.kputro.dragon.core.datastore.users.UserDatastore
 import id.kputro.dragon.core.startCoreApplication
 import id.kputro.dragon.dimodule.ContentService
 import id.kputro.dragon.dimodule.ContentServiceImpl
-import id.kputro.dragon.material.startDragonApplication
 import id.kputro.dragon.ui.components.actionbar.ActionBarViewModel
 import id.kputro.dragon.ui.dashboard.DashboardActivity
 import id.kputro.dragon.ui.dashboard.DashboardViewModel
@@ -32,7 +32,7 @@ class BootApp : Application() {
     super.onCreate()
     startKoin()
     startCoreApp()
-    startDragonApp()
+    startBootstrap()
     startPageStations()
   }
 
@@ -62,15 +62,11 @@ class BootApp : Application() {
   }
 
   // --
-  private fun startDragonApp() {
-    startDragonApplication {
-      // routerModule(mRouterModule)
+  private fun startBootstrap() {
+    startBootstrapModule {
+      // not used at the moment..
     }
   }
-
-  /*private val mRouterModule = routerModule {
-    registerActivity(Route.APP_SCHEME, Route.PAGE_DASHBOARD, DashboardActivity::class.java)
-  }*/
 
   private fun startPageStations() {
     startPageStationsModule {
@@ -81,4 +77,6 @@ class BootApp : Application() {
       printAllPossibleRoute()
     }
   }
+
+
 }

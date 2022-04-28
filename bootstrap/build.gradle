@@ -4,18 +4,19 @@ plugins {
 }
 
 android {
-  compileSdk psSetup.compileSdkVersion
-  resourcePrefix psSetup.resourcePrefix
+  compileSdk bsSetup.compileSdkVersion
+  resourcePrefix bsSetup.resourcePrefix
   defaultConfig {
-    minSdk psSetup.minSdkVersion
-    targetSdk psSetup.targetSdkVersion
-    versionCode psSetup.versionCode
-    versionName "${psSetup.versionName}"
+    minSdk bsSetup.minSdkVersion
+    targetSdk bsSetup.targetSdkVersion
+    versionCode bsSetup.versionCode
+    versionName "${bsSetup.versionName}"
     aarMetadata {
-      minCompileSdk = psSetup.minSdkVersion
+      minCompileSdk = bsSetup.minSdkVersion
     }
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles "consumer-rules.pro"
+    resValue 'string', 'app_name', "${bsSetup.appName}"
   }
 
   buildTypes {
@@ -49,6 +50,8 @@ dependencies {
   // Reactive
   implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
   implementation "io.reactivex.rxjava2:rxkotlin:2.4.0"
+  // Material Dialogs
+  implementation 'com.afollestad.material-dialogs:core:3.3.0'
   // Test
   testImplementation "junit:junit:$mJunit"
   androidTestImplementation "androidx.test.ext:junit:$mExtJunit"

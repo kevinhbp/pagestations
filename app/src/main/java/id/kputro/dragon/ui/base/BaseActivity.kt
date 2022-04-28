@@ -7,9 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import id.kputro.bootstrap.dialog.setupDialogReference
+import id.kputro.bootstrap.dialog.showLoadingDialog
+import id.kputro.bootstrap.dialog.showMessageDialog
+import id.kputro.bootstrap.dialog.showToastMessage
 import id.kputro.dragon.core.extension.replaceIfNull
-import id.kputro.dragon.material.component.dialog.setupDialogReference
-import id.kputro.dragon.material.component.dialog.showMessageDialog
 import id.kputro.pagestations.dsl.navigateTo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -44,16 +46,16 @@ abstract class BaseActivity<in T : ViewDataBinding>(private val mLayoutResId: In
 
     setupDefaultSettings()
     setupLayoutObserver(binding.root)
+    val mActivity = this
     setupDialogReference {
-      val activity = this@BaseActivity
-      setReference(WeakReference(activity))
-      activity.lifecycle.addObserver(this)
+      setReference(WeakReference(mActivity))
+      mActivity.lifecycle.addObserver(this)
     }
   }
 
   // --
   override fun showLoading(show: Boolean) {
-
+    showLoadingDialog(show)
   }
 
   override fun showMessage(title: String?, message: String, onDismiss: (() -> Unit)?) {
@@ -61,7 +63,7 @@ abstract class BaseActivity<in T : ViewDataBinding>(private val mLayoutResId: In
   }
 
   override fun showToast(message: String, doLong: Boolean) {
-
+    showToastMessage(message, doLong)
   }
 
   // --
