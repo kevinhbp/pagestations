@@ -8,6 +8,7 @@ import id.kputro.dragon.entity.SpaceSize.M
 import id.kputro.dragon.entity.SpaceSize.XXL
 import id.kputro.dragon.ui.base.BaseView
 import id.kputro.dragon.ui.base.BaseViewModel
+import id.kputro.dragon.R.drawable
 import id.kputro.dragon.ui.dashboard.DashboardContract.DashboardViewContract
 
 interface DashboardContract {
@@ -34,14 +35,13 @@ class DashboardViewModel(private val contentService: ContentService) : ViewModel
 
   override fun start() {
     initMenu()
-    this.view.showLoading(true)
   }
 
   // --
   private fun initMenu() {
     val mMenu = ArrayList<MenuItemModel>()
     mMenu.add(MenuItemModel.space(ACTION_BAR_SIZE))
-    mMenu.add(MenuItemModel.header("Hello", "Kevin Putro"))
+    mMenu.add(MenuItemModel.header(mTitle = "Hello,", mSubtitle = "Kevin Putro", mPhotoResId = drawable.fo_illustration_user_2))
     this.view.setMenu(mMenu)
   }
 }

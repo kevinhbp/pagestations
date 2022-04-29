@@ -7,6 +7,13 @@
   <dimen name="fo_font_large">16sp</dimen>
   <dimen name="fo_font_xlarge">18sp</dimen>
 
+  <dimen name="fo_font_display_micro">19sp</dimen>
+  <dimen name="fo_font_display_tiny">20sp</dimen>
+  <dimen name="fo_font_display_small">22sp</dimen>
+  <dimen name="fo_font_display_normal">24sp</dimen>
+  <dimen name="fo_font_display_large">26sp</dimen>
+  <dimen name="fo_font_display_xlarge">28sp</dimen>
+
   <dimen name="fo_spacing_s">6dp</dimen>
   <dimen name="fo_spacing_m">10dp</dimen>
   <dimen name="fo_spacing_l">16dp</dimen>
@@ -30,10 +37,10 @@
   <dimen name="fo_elevation_default">6dp</dimen>
 
   <dimen name="fo_size_img_logo_splash">180dp</dimen>
-  <dimen name="fo_size_img_logo_dashboard">80dp</dimen>
+  <dimen name="fo_size_img_logo_dashboard">100dp</dimen>
   <dimen name="fo_size_loading_main">40dp</dimen>
 
-  <dimen name="fo_size_menu_header">250dp</dimen>
+  <dimen name="fo_size_menu_header">235dp</dimen>
   <dimen name="fo_size_menu_item">170dp</dimen>
   <dimen name="fo_size_menu_footer">120dp</dimen>
 </resources>

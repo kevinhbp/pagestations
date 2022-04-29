@@ -62,7 +62,7 @@
 
           <TextView
             android:id="@+id/tv_title"
-            style="@style/FoTextView.ExtraLarge"
+            style="@style/FoTextView.Display"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{menuHeaderViewModel.textTitle}"
@@ -71,7 +71,7 @@
 
           <TextView
             android:id="@+id/tv_subtitle"
-            style="@style/FoTextViewBold.ExtraLarge"
+            style="@style/FoTextViewBold.Display"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{menuHeaderViewModel.textSubtitle}"

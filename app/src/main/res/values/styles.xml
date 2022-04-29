@@ -49,6 +49,10 @@
     <item name="android:textSize">@dimen/fo_font_xlarge</item>
   </style>
 
+  <style name="FoTextView.Display">
+    <item name="android:textSize">@dimen/fo_font_display_normal</item>
+  </style>
+
   <style name="FoTextViewBold.Small">
     <item name="android:textSize">@dimen/fo_font_small</item>
   </style>
@@ -59,6 +63,11 @@
 
   <style name="FoTextViewBold.ExtraLarge">
     <item name="android:textSize">@dimen/fo_font_xlarge</item>
+  </style>
+
+
+  <style name="FoTextViewBold.Display">
+    <item name="android:textSize">@dimen/fo_font_display_normal</item>
   </style>
 
   <!-- Region Progress Bar -->

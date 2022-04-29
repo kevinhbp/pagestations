@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
+import id.kputro.bootstrap.dialog.showConfirmationDialog
 import id.kputro.dragon.R.drawable
 import id.kputro.dragon.R.layout
 import id.kputro.dragon.R.string
@@ -106,5 +107,17 @@ class DashboardActivity : BaseActivity<DashboardActivityBinding>(layout.dashboar
     /*mRecyclerView.getParallaxListener { _, alpha ->
       actionBarViewModel.alphaBackground.set(alpha)
     }*/
+  }
+
+  override fun onBackPressed() {
+    val mTitle = "Close confirmation"
+    val mMessage = "Are you sure to close the application ?"
+    val mPositive = "Yes"
+    val mNegative = "No"
+    showConfirmationDialog(mTitle, mMessage, mPositive, mNegative) {
+      if (it) {
+        super.onBackPressed()
+      }
+    }
   }
 }

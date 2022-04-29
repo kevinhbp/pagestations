@@ -16,9 +16,13 @@
   <color name="secondary_light">#FFFFE083</color>
   <color name="secondary_dark">#FFFFCB31</color>
 
-  <color name="tertiary">#FF78909C</color>
-  <color name="tertiary_light">#FFA7C0CD</color>
-  <color name="tertiary_dark">#FF4B636E</color>
+  <color name="tertiary">#FF357E81</color>
+  <color name="tertiary_light">#FF44A1A5</color>
+  <color name="tertiary_dark">#FF225153</color>
+
+  <color name="tertiary_alt">#FF78909C</color>
+  <color name="tertiary_alt_light">#FFA7C0CD</color>
+  <color name="tertiary_alt_dark">#FF4B636E</color>
 
   <color name="ripple_default">#88FFE083</color>
 
