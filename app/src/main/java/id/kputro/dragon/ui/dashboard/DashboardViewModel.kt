@@ -9,6 +9,7 @@ import id.kputro.dragon.entity.SpaceSize.S
 import id.kputro.dragon.ui.base.BaseView
 import id.kputro.dragon.ui.base.BaseViewModel
 import id.kputro.dragon.ui.dashboard.DashboardContract.DashboardViewContract
+import id.kputro.dragon.utils.applink.getApplinkPage
 
 interface DashboardContract {
   interface DashboardViewModelContract : BaseViewModel<DashboardViewContract> {
@@ -50,9 +51,9 @@ class DashboardViewModel(private val contentService: ContentService) : ViewModel
     mMenu.add(MenuItemModel.space(S))
     mMenu.add(
       MenuItemModel.menu(
-        "",
+        getApplinkPage(),
         "Applink Saver",
-        "For You to increase convenience and productivity.",
+        "Tools to increase convenience and productivity.",
         drawable.fo_bg_dark_navy,
         drawable.fo_ic_database
       )

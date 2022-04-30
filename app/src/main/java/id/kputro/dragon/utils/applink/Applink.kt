@@ -13,10 +13,8 @@ object Route {
   const val PAGE_SETTINGS = "page_settings"
   const val PAGE_PERMISSIONS = "page_permission"
   const val PAGE_NOTIFICATIONS = "page_notifications"
-  const val PAGE_BROWSER = "page_browser"
 
   const val PAGE_APPLINK = "page_applink"
-  const val PAGE_APPLINK_SAVED = "page_applink_saved"
 
   const val PAGE_ABOUT_ME = "page_about_me"
 
@@ -29,6 +27,11 @@ fun getAppScheme(): String {
   return Route.APP_SCHEME + "://"
 }
 
-fun getDashboardPageApplink(): String {
+fun getDashboardPage(): String {
   return getAppScheme() + Route.PAGE_DASHBOARD
 }
+
+fun getApplinkPage(): String {
+  return getAppScheme() + Route.PAGE_APPLINK
+}
+
