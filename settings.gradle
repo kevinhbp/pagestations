@@ -12,9 +12,8 @@ dependencyResolutionManagement {
     mavenCentral()
   }
 }
-rootProject.name = "Kevin Putro"
+rootProject.name = "You"
 include ':app'
 include ':app-core'
-include ':dragon-material'
 include ':pagestations'
 include ':bootstrap'

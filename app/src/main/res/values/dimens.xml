@@ -26,6 +26,7 @@
   <dimen name="fo_spacing_neg_xl">-22dp</dimen>
   <dimen name="fo_spacing_neg_xxl">-32dp</dimen>
 
+  <dimen name="fo_radius_small">16dp</dimen>
   <dimen name="fo_radius_default">22dp</dimen>
   <dimen name="fo_radius_circle">200dp</dimen>
   <dimen name="fo_radius_squarcle">32dp</dimen>
@@ -38,9 +39,10 @@
 
   <dimen name="fo_size_img_logo_splash">180dp</dimen>
   <dimen name="fo_size_img_logo_dashboard">100dp</dimen>
+  <dimen name="fo_size_img_icon_menu">32dp</dimen>
   <dimen name="fo_size_loading_main">40dp</dimen>
 
-  <dimen name="fo_size_menu_header">235dp</dimen>
-  <dimen name="fo_size_menu_item">170dp</dimen>
+  <dimen name="fo_size_menu_header">186dp</dimen>
+  <dimen name="fo_size_menu_item">160dp</dimen>
   <dimen name="fo_size_menu_footer">120dp</dimen>
 </resources>

@@ -1,33 +1,33 @@
-package id.kputro.dragon.ui.menu.header
+package id.kputro.dragon.ui.menu.item
 
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import androidx.lifecycle.ViewModel
 import id.kputro.dragon.entity.MenuItemModel
 import id.kputro.dragon.ui.base.BaseViewModel
-import id.kputro.dragon.ui.menu.header.MenuHeaderContract.MenuHeaderViewContract
+import id.kputro.dragon.ui.menu.item.MenuItemContract.MenuItemViewContract
 
-interface MenuHeaderContract {
-  interface MenuHeaderViewModelContract : BaseViewModel<MenuHeaderViewContract> {
+interface MenuItemContract {
+  interface MenuItemViewModelContract : BaseViewModel<MenuItemViewContract> {
     fun setModel(mModel: MenuItemModel)
   }
 
-  interface MenuHeaderViewContract {
-    fun initMenuHeaderView()
+  interface MenuItemViewContract {
+    fun initMenuItemView()
   }
 }
 
-class MenuHeaderViewModel : ViewModel(),
-  MenuHeaderContract.MenuHeaderViewModelContract {
+class MenuItemViewModel : ViewModel(),
+  MenuItemContract.MenuItemViewModelContract {
 
-  private lateinit var view: MenuHeaderViewContract
+  private lateinit var view: MenuItemViewContract
 
   val imageBackground = ObservableInt()
-  val imagePhoto = ObservableInt()
+  val imageIcon = ObservableInt()
   val textTitle = ObservableField("")
   val textSubtitle = ObservableField("")
 
-  override fun init(view: MenuHeaderViewContract) {
+  override fun init(view: MenuItemViewContract) {
     this.view = view
   }
 
@@ -35,7 +35,7 @@ class MenuHeaderViewModel : ViewModel(),
 
   override fun setModel(mModel: MenuItemModel) {
     mModel.run {
-      if (imageResId != null) imagePhoto.set(imageResId!!)
+      if (imageResId != null) imageIcon.set(mModel.imageResId!!)
       if (backgroundResId != null) imageBackground.set(backgroundResId!!)
       textTitle.set(name)
       textSubtitle.set(descriptions)

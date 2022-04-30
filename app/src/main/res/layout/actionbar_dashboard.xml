@@ -38,20 +38,22 @@
 
       <TextView
         android:id="@+id/tv_title"
-        style="@style/FoTextViewBold.Small"
-        android:layout_width="wrap_content"
+        style="@style/FoTextViewBold.Large"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/fo_spacing_l"
         android:ellipsize="end"
-        android:gravity="center"
-        android:lines="1"
+        android:gravity="center_vertical|start"
+        android:maxLines="2"
         android:text="@{actionBarViewModel.model.textTitle}"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/wp_buttons"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/app_name" />
 
       <LinearLayout
+        android:id="@+id/wp_buttons"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginEnd="@dimen/fo_spacing_s"

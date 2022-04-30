@@ -8,27 +8,17 @@
     <item name="android:includeFontPadding">false</item>
   </style>
 
-  <style name="BsTextViewBold">
-    <item name="android:textColor">@color/bs_text_black_1</item>
-    <item name="android:textSize">@dimen/bs_font_normal</item>
-    <item name="android:fontFamily">@font/montserrat_regular</item>
+  <style name="BsTextViewBold" parent="BsTextView">
     <item name="android:textStyle">bold</item>
-    <item name="android:includeFontPadding">false</item>
   </style>
 
-  <style name="BsTextViewItalic">
-    <item name="android:textColor">@color/bs_text_black_1</item>
-    <item name="android:textSize">@dimen/bs_font_normal</item>
+  <style name="BsTextViewItalic" parent="BsTextView">
     <item name="android:fontFamily">@font/montserrat_italic</item>
-    <item name="android:includeFontPadding">false</item>
   </style>
 
-  <style name="BsTextViewBoldItalic">
-    <item name="android:textColor">@color/bs_text_black_1</item>
-    <item name="android:textSize">@dimen/bs_font_normal</item>
+  <style name="BsTextViewBoldItalic" parent="BsTextView">
     <item name="android:fontFamily">@font/montserrat_italic</item>
     <item name="android:textStyle">bold</item>
-    <item name="android:includeFontPadding">false</item>
   </style>
 
   <style name="BsTextView.Micro">

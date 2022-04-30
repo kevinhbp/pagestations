@@ -35,7 +35,7 @@ class MainActivity : BaseActivity<MainActivityBinding>(layout.main_activity),
   }
 
   override fun delayToDashboardAfter() {
-    delayFunction(200L) {
+    delayFunction(1000L) {
       goTo(getDashboardPageApplink())
       finish()
     }

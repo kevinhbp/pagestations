@@ -31,4 +31,10 @@
 
   <color name="text_white_1">#FFFAFAFA</color>
   <color name="text_white_2">#FFEFEFEF</color>
+
+  <color name="bs_primary">#FF357E81</color>
+  <color name="bs_primary_2">#FF225153</color>
+
+  <color name="bs_secondary">#FF009C69</color>
+  <color name="bs_secondary_2">#FF006A41</color>
 </resources>

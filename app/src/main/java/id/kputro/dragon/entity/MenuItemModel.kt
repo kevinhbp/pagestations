@@ -2,9 +2,14 @@ package id.kputro.dragon.entity
 
 import android.view.View
 import androidx.annotation.DrawableRes
-import id.kputro.dragon.extension.MenuType
 import id.kputro.dragon.R.drawable
-import id.kputro.dragon.entity.SpaceSize.*
+import id.kputro.dragon.entity.SpaceSize.ACTION_BAR_SIZE
+import id.kputro.dragon.entity.SpaceSize.L
+import id.kputro.dragon.entity.SpaceSize.M
+import id.kputro.dragon.entity.SpaceSize.S
+import id.kputro.dragon.entity.SpaceSize.XL
+import id.kputro.dragon.entity.SpaceSize.XXL
+import id.kputro.dragon.extension.MenuType
 import java.io.Serializable
 
 data class MenuItemModel(
@@ -13,7 +18,6 @@ data class MenuItemModel(
   var applink: String = ""
   var name: String = ""
   var descriptions: String = ""
-  var imageUrl: String? = null
 
   @DrawableRes
   var imageResId: Int? = null
@@ -24,18 +28,38 @@ data class MenuItemModel(
   var spaceSize: SpaceSize = S
 
   companion object {
-    fun space(mSpaceSize: SpaceSize) : MenuItemModel {
+    fun space(mSpaceSize: SpaceSize): MenuItemModel {
       return MenuItemModel(MenuType.SPACE).apply {
         spaceSize = mSpaceSize
       }
     }
 
-    fun header(mTitle: String, mSubtitle: String, mBgResId: Int = drawable.bg_illustration_01, mPhotoResId: Int = drawable.ic_avatar) : MenuItemModel {
+    fun header(
+      mTitle: String,
+      mSubtitle: String,
+      mBgResId: Int = drawable.bg_illustration_01,
+      mPhotoResId: Int = drawable.ic_avatar
+    ): MenuItemModel {
       return MenuItemModel(MenuType.HEADER).apply {
         name = mTitle
         descriptions = mSubtitle
         backgroundResId = mBgResId
         imageResId = mPhotoResId
+      }
+    }
+
+    fun menu(
+      mApplink: String,
+      mTitle: String,
+      mSubtitle: String,
+      mBgResId: Int?,
+      mIconResId: Int?): MenuItemModel {
+      return MenuItemModel(MenuType.ITEM).apply {
+        name = mTitle
+        descriptions = mSubtitle
+        backgroundResId = mBgResId
+        imageResId = mIconResId
+        applink = mApplink
       }
     }
   }

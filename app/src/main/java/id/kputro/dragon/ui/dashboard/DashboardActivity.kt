@@ -1,10 +1,7 @@
 package id.kputro.dragon.ui.dashboard
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
-import id.kputro.bootstrap.dialog.showConfirmationDialog
 import id.kputro.dragon.R.drawable
 import id.kputro.dragon.R.layout
 import id.kputro.dragon.R.string
@@ -12,7 +9,6 @@ import id.kputro.dragon.databinding.DashboardActivityBinding
 import id.kputro.dragon.entity.ActionBarBuilder
 import id.kputro.dragon.entity.ButtonBuilder
 import id.kputro.dragon.entity.MenuItemModel
-import id.kputro.dragon.extension.MenuType
 import id.kputro.dragon.ui.base.BaseActivity
 import id.kputro.dragon.ui.base.BaseAdapterListener.AppLinkListener
 import id.kputro.dragon.ui.components.actionbar.ActionBarContract
@@ -23,12 +19,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class DashboardActivity : BaseActivity<DashboardActivityBinding>(layout.dashboard_activity),
   DashboardContract.DashboardViewContract,
   ActionBarContract.ActionBarViewContract {
-
-  companion object {
-    fun newIntent(mContext: Context): Intent {
-      return Intent(mContext, DashboardActivity::class.java)
-    }
-  }
 
   private lateinit var binding: DashboardActivityBinding
 
@@ -47,6 +37,8 @@ class DashboardActivity : BaseActivity<DashboardActivityBinding>(layout.dashboar
     super.onCreate(savedInstanceState)
     dashboardViewModel.init(this)
     actionBarViewModel.init(this)
+
+    setClosePageConfirmationApp()
   }
 
   override fun onCompleteDraw() {
@@ -83,41 +75,11 @@ class DashboardActivity : BaseActivity<DashboardActivityBinding>(layout.dashboar
   private fun initRecyclerView() {
     val mRecyclerView = this.binding.subContent.rvMenuDashboard
     val mLayoutManager = GridLayoutManager(this, 2)
-    mLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-      override fun getSpanSize(position: Int): Int {
-        return if (mAdapter.getItemViewType(position) == MenuType.ITEM) {
-          1
-        } else {
-          2
-        }
-      }
-    }
-    mRecyclerView.apply {
-      adapter = mAdapter
-      layoutManager = mLayoutManager
-      isNestedScrollingEnabled = false
-      setHasFixedSize(true)
-      setItemViewCacheSize(10)
-    }
-    mAdapter.listener = object : AppLinkListener {
+    mLayoutManager.spanSizeLookup = mAdapter.getSpanSizeLookup()
+    mAdapter.setRecyclerView(mRecyclerView, mLayoutManager, object : AppLinkListener {
       override fun onRequestedAppLink(target: String) {
         goTo(target)
       }
-    }
-    /*mRecyclerView.getParallaxListener { _, alpha ->
-      actionBarViewModel.alphaBackground.set(alpha)
-    }*/
-  }
-
-  override fun onBackPressed() {
-    val mTitle = "Close confirmation"
-    val mMessage = "Are you sure to close the application ?"
-    val mPositive = "Yes"
-    val mNegative = "No"
-    showConfirmationDialog(mTitle, mMessage, mPositive, mNegative) {
-      if (it) {
-        super.onBackPressed()
-      }
-    }
+    })
   }
 }

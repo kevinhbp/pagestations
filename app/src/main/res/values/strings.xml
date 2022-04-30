@@ -1,6 +1,6 @@
 <resources>
-  <string name="fo_website">https://www.kevinputro.id/</string>
-  <string name="fo_play_store">https://play.google.com/store/apps/details?id=id.kevinputro.hello</string>
+  <string name="fo_website">https://www.kputro.id/?s=you-app</string>
+  <string name="fo_play_store">https://play.google.com/store/apps/details?id=id.kputro.dragon</string>
 
   <string name="fo_load_failed">Load failed</string>
   <string name="fo_see_more">See more</string>
@@ -13,4 +13,8 @@
   <string name="fo_dismiss">Dismiss</string>
   <string name="fo_reload">Reload</string>
   <string name="fo_try_again">Try again</string>
+  <string name="fo_hello">Hello</string>
+  <string name="fo_close_confirmation">Close confirmation</string>
+  <string name="fo_are_you_sure_close_app">Are You sure to close this application ?</string>
+  <string name="fo_are_you_sure_close_page">Are You sure to close this page ?</string>
 </resources>
