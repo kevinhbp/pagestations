@@ -22,51 +22,32 @@
       app:cardBackgroundColor="@color/white"
       app:cardCornerRadius="@dimen/fo_radius_small">
 
-      <LinearLayout
+      <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatImageView
           android:id="@+id/iv_background"
-          android:layout_width="match_parent"
+          android:layout_width="0dp"
           android:layout_height="0dp"
-          android:layout_weight="1"
           android:scaleType="centerCrop"
-          app:setImage="@{menuItemViewModel.imageBackground}"
-          tools:src="@drawable/bg_illustration_01" />
-
-        <View
-          android:layout_width="match_parent"
-          android:layout_height="0dp"
-          android:layout_weight="1.5" />
-
-      </LinearLayout>
-
-      <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/bs_spacing_xl">
-
-        <View
-          android:id="@+id/vw_anchor"
-          android:layout_width="1dp"
-          android:layout_height="1dp"
-          android:layout_marginBottom="@dimen/fo_spacing_l"
-          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintBottom_toTopOf="@+id/wp_message"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
+          app:layout_constraintTop_toTopOf="parent"
+          app:setImage="@{menuItemViewModel.imageBackground}"
+          tools:src="@drawable/bg_standard_01" />
 
         <LinearLayout
           android:id="@+id/wp_message"
           android:layout_width="match_parent"
-          android:layout_height="0dp"
+          android:layout_height="wrap_content"
           android:orientation="vertical"
+          android:paddingTop="@dimen/fo_spacing_xl"
+          android:paddingBottom="@dimen/fo_spacing_m"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/vw_anchor">
+          app:layout_constraintStart_toStartOf="parent">
 
           <TextView
             android:id="@+id/tv_title"
@@ -78,21 +59,6 @@
             android:textColor="@color/text_black_1"
             tools:text="Menu 1" />
 
-          <TextView
-            android:id="@+id/tv_subtitle"
-            style="@style/FoTextView.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/fo_spacing_s"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="3"
-            android:paddingHorizontal="@dimen/fo_spacing_m"
-            android:text="@{menuItemViewModel.textSubtitle}"
-            android:textColor="@color/text_black_2"
-            tools:text="Lorem ipsum dolor sit amet.\nLorem ipsum dolor sit amet.\nLorem ipsum dolor sit amet." />
-
         </LinearLayout>
 
         <androidx.cardview.widget.CardView
@@ -103,19 +69,50 @@
           app:cardCornerRadius="@dimen/fo_size_img_logo_dashboard"
           app:cardElevation="0dp"
           app:cardPreventCornerOverlap="true"
-          app:layout_constraintBottom_toTopOf="@+id/vw_anchor"
+          app:layout_constraintBottom_toTopOf="@+id/wp_message"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintStart_toStartOf="parent">
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/wp_message">
 
           <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_photo"
-            android:layout_width="@dimen/fo_size_img_icon_menu"
-            android:layout_height="@dimen/fo_size_img_icon_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_margin="@dimen/fo_spacing_xs"
             android:scaleType="centerInside"
             app:setImage="@{menuItemViewModel.imageIcon}" />
 
         </androidx.cardview.widget.CardView>
+
+        <FrameLayout
+          android:layout_width="@dimen/fo_size_button_s"
+          android:layout_height="@dimen/fo_size_button_s"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
+
+          <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/fo_size_img_icon_small"
+            android:layout_height="@dimen/fo_size_img_icon_small"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/fo_size_img_logo_dashboard"
+            app:cardElevation="0dp"
+            app:cardPreventCornerOverlap="true">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:id="@+id/btn_info"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_gravity="center"
+              android:clickable="true"
+              android:focusable="true"
+              android:scaleType="centerInside"
+              app:srcCompat="@drawable/ic_more" />
+
+          </androidx.cardview.widget.CardView>
+
+        </FrameLayout>
 
       </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -24,6 +24,7 @@ class DashboardActivity : BaseActivity<DashboardActivityBinding>(layout.dashboar
 
   private val dashboardViewModel: DashboardViewModel by viewModel()
   private val actionBarViewModel: ActionBarViewModel by viewModel()
+
   private val mAdapter = MenuAdapter()
 
   override fun initDataBinding(binding: DashboardActivityBinding) {

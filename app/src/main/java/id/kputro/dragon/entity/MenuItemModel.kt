@@ -37,7 +37,7 @@ data class MenuItemModel(
     fun header(
       mTitle: String,
       mSubtitle: String,
-      mBgResId: Int = drawable.bg_illustration_01,
+      mBgResId: Int = drawable.bg_standard_01,
       mPhotoResId: Int = drawable.ic_avatar
     ): MenuItemModel {
       return MenuItemModel(MenuType.HEADER).apply {

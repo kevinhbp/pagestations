@@ -8,7 +8,7 @@ buildscript {
         minSdkVersion: 21,
         targetSdkVersion: 31,
         versionCode: 10000,
-        versionName: "1.00",
+        versionName: "MMXXII.1.00",
     ]
     psSetup = [
         appName: "Page Stations",

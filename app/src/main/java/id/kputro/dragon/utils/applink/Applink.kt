@@ -8,6 +8,7 @@ object Route {
   const val CLOSE_PAGE = "close_page"
   const val CLOSE_APP = "close_app"
   const val NAVIGATION_BACK = "navigation_back"
+  const val UPCOMING_FEATURES = "upcoming_features"
 
   const val PAGE_DASHBOARD = "page_dashboard"
   const val PAGE_SETTINGS = "page_settings"
@@ -27,11 +28,14 @@ fun getAppScheme(): String {
   return Route.APP_SCHEME + "://"
 }
 
-fun getDashboardPage(): String {
+fun getDashboardPageAddrs(): String {
   return getAppScheme() + Route.PAGE_DASHBOARD
 }
 
-fun getApplinkPage(): String {
+fun getApplinkPageAddrs(): String {
   return getAppScheme() + Route.PAGE_APPLINK
 }
 
+fun getUpcomingFeatureAddrs(): String {
+  return getAppScheme() + Route.UPCOMING_FEATURES
+}

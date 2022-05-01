@@ -4,7 +4,7 @@ import android.os.Bundle
 import id.kputro.dragon.R.layout
 import id.kputro.dragon.databinding.MainActivityBinding
 import id.kputro.dragon.ui.base.BaseActivity
-import id.kputro.dragon.utils.applink.getDashboardPage
+import id.kputro.dragon.utils.applink.getDashboardPageAddrs
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity<MainActivityBinding>(layout.main_activity),
@@ -36,7 +36,7 @@ class MainActivity : BaseActivity<MainActivityBinding>(layout.main_activity),
 
   override fun delayToDashboardAfter() {
     delayFunction(1000L) {
-      goTo(getDashboardPage())
+      goTo(getDashboardPageAddrs())
       finish()
     }
   }
