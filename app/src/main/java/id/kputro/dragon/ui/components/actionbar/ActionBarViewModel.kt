@@ -1,5 +1,6 @@
 package id.kputro.dragon.ui.components.actionbar
 
+import android.content.Intent
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableFloat
 import androidx.lifecycle.ViewModel
@@ -27,7 +28,7 @@ class ActionBarViewModel : ViewModel(),
 
   private lateinit var view: ActionBarViewContract
 
-  override fun init(view: ActionBarViewContract) {
+  override fun init(view: ActionBarViewContract, data: Intent?) {
     this.view = view
   }
 

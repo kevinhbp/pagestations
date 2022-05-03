@@ -55,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:paddingHorizontal="@dimen/fo_spacing_s"
             android:text="@{menuItemViewModel.textTitle}"
             android:textColor="@color/text_black_1"
             tools:text="Menu 1" />
@@ -88,6 +89,9 @@
         <FrameLayout
           android:layout_width="@dimen/fo_size_button_s"
           android:layout_height="@dimen/fo_size_button_s"
+          android:clickable="true"
+          android:focusable="true"
+          android:onClick="@{menuItemViewModel::onClickMenuDetails}"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintTop_toTopOf="parent">
 
@@ -105,8 +109,6 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_gravity="center"
-              android:clickable="true"
-              android:focusable="true"
               android:scaleType="centerInside"
               app:srcCompat="@drawable/ic_more" />
 

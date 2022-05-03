@@ -13,4 +13,21 @@
     <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     <!-- Customized for Application. -->
   </style>
+
+  <!-- Transparent page theme -->
+  <style name="Theme.KevinPutro.Transparent" parent="Theme.KevinPutro">
+    <item name="android:forceDarkAllowed" tools:targetApi="29">false</item>
+
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:backgroundDimEnabled">true</item>
+    <item name="android:backgroundDimAmount">0.5</item>
+    <item name="android:background">@android:color/transparent</item>
+
+    <item name="android:windowAnimationStyle">@null</item>
+
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowIsFloating">false</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
 </resources>

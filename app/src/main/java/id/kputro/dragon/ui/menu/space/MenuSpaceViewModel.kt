@@ -1,5 +1,6 @@
 package id.kputro.dragon.ui.menu.space
 
+import android.content.Intent
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import id.kputro.dragon.entity.MenuItemModel
@@ -24,7 +25,7 @@ class MenuSpaceViewModel : ViewModel(),
 
   val model = ObservableField<MenuItemModel>()
 
-  override fun init(view: MenuSpaceViewContract) {
+  override fun init(view: MenuSpaceViewContract, data: Intent?) {
     this.view = view
   }
 

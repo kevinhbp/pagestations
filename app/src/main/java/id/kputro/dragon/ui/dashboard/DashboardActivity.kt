@@ -38,8 +38,10 @@ class DashboardActivity : BaseActivity<DashboardActivityBinding>(layout.dashboar
     super.onCreate(savedInstanceState)
     dashboardViewModel.init(this)
     actionBarViewModel.init(this)
+  }
 
-    setClosePageConfirmationApp()
+  override fun getConfirmationType(): Int {
+    return 0
   }
 
   override fun onCompleteDraw() {

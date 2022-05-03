@@ -10,6 +10,8 @@ import id.kputro.dragon.ui.components.actionbar.ActionBarViewModel
 import id.kputro.dragon.ui.dashboard.DashboardActivity
 import id.kputro.dragon.ui.dashboard.DashboardViewModel
 import id.kputro.dragon.ui.main.MainViewModel
+import id.kputro.dragon.ui.menu.details.MenuDetailsActivity
+import id.kputro.dragon.ui.menu.details.MenuDetailsViewModel
 import id.kputro.dragon.utils.applink.Route
 import id.kputro.pagestations.dsl.startPageStationsModule
 import org.koin.android.ext.koin.androidContext
@@ -52,6 +54,7 @@ class BootApp : Application() {
     viewModel { ActionBarViewModel() }
     viewModel { MainViewModel(get(), get()) }
     viewModel { DashboardViewModel(get()) }
+    viewModel { MenuDetailsViewModel() }
   }
 
   // --
@@ -73,6 +76,7 @@ class BootApp : Application() {
       enableLog()
 
       registerActivity(Route.APP_SCHEME, Route.PAGE_DASHBOARD, DashboardActivity::class.java)
+      registerActivity(Route.APP_SCHEME, Route.PAGE_MENU_DETAILS, MenuDetailsActivity::class.java)
 
       printAllPossibleRoute()
     }

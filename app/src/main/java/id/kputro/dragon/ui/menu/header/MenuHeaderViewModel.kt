@@ -1,5 +1,6 @@
 package id.kputro.dragon.ui.menu.header
 
+import android.content.Intent
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import androidx.lifecycle.ViewModel
@@ -27,11 +28,12 @@ class MenuHeaderViewModel : ViewModel(),
   val textTitle = ObservableField("")
   val textSubtitle = ObservableField("")
 
-  override fun init(view: MenuHeaderViewContract) {
+  override fun init(view: MenuHeaderViewContract, data: Intent?) {
     this.view = view
   }
 
-  override fun start() { /* not used at the moment.. */ }
+  override fun start() { /* not used at the moment.. */
+  }
 
   override fun setModel(mModel: MenuItemModel) {
     mModel.run {

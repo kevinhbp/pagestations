@@ -1,5 +1,6 @@
 package id.kputro.dragon.ui.main
 
+import android.content.Intent
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import id.kputro.dragon.core.datastore.users.UserDatastore
@@ -31,7 +32,7 @@ class MainViewModel(
   private lateinit var view: MainViewContract
 
   // --
-  override fun init(view: MainViewContract) {
+  override fun init(view: MainViewContract, data: Intent?) {
     this.view = view
     this.view.initMainView()
   }

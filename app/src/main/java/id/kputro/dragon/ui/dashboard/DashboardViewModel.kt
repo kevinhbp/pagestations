@@ -1,5 +1,6 @@
 package id.kputro.dragon.ui.dashboard
 
+import android.content.Intent
 import androidx.lifecycle.ViewModel
 import id.kputro.dragon.R.drawable
 import id.kputro.dragon.dimodule.ContentService
@@ -29,7 +30,7 @@ class DashboardViewModel(private val contentService: ContentService) : ViewModel
   private lateinit var view: DashboardViewContract
 
   // --
-  override fun init(view: DashboardViewContract) {
+  override fun init(view: DashboardViewContract, data: Intent?) {
     this.view = view
     this.view.initDashboardView()
   }
@@ -52,20 +53,20 @@ class DashboardViewModel(private val contentService: ContentService) : ViewModel
     mMenu.add(MenuItemModel.space(S))
     mMenu.add(
       MenuItemModel.menu(
-        getApplinkPageAddrs(),
-        "Applink Saver",
-        "Tools to increase convenience and productivity.",
-        drawable.bg_standard_menu_dark_navy,
-        drawable.ic_future_arrow
+        getUpcomingFeatureAddrs(),
+        "WA Automator",
+        "Send Whatsapp Message with Pre-saved message.",
+        drawable.bg_standard_menu_dark_green,
+        drawable.ic_tropical_email
       )
     )
     mMenu.add(
       MenuItemModel.menu(
-        getUpcomingFeatureAddrs(),
-        "Upcoming Feature",
-        "Will be available on the next update.",
-        drawable.bg_standard_menu_light_orange,
-        drawable.ic_crystal_ball
+        getApplinkPageAddrs(),
+        "Applink Saver",
+        "Save link conveniently and boost productivity.",
+        drawable.bg_standard_menu,
+        drawable.ic_tropical_space_shuttle
       )
     )
     mMenu.add(

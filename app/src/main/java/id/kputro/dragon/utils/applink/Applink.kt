@@ -1,5 +1,8 @@
 package id.kputro.dragon.utils.applink
 
+import id.kputro.dragon.entity.MenuItemModel
+import id.kputro.dragon.singleton.DataSingleton
+
 object Route {
   const val APP_SCHEME = "kputro"
   const val HTTP_SCHEME = "http"
@@ -14,6 +17,7 @@ object Route {
   const val PAGE_SETTINGS = "page_settings"
   const val PAGE_PERMISSIONS = "page_permission"
   const val PAGE_NOTIFICATIONS = "page_notifications"
+  const val PAGE_MENU_DETAILS = "page_menu_details"
 
   const val PAGE_APPLINK = "page_applink"
 
@@ -38,4 +42,9 @@ fun getApplinkPageAddrs(): String {
 
 fun getUpcomingFeatureAddrs(): String {
   return getAppScheme() + Route.UPCOMING_FEATURES
+}
+
+fun getMenuDetailsPageAddrs(mModel: MenuItemModel): String {
+  DataSingleton.get().selMenuItem = mModel
+  return getAppScheme() + Route.PAGE_MENU_DETAILS
 }

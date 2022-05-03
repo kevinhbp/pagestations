@@ -45,7 +45,6 @@ abstract class BaseActivity<in T : ViewDataBinding>(private val mLayoutResId: In
     super.onCreate(savedInstanceState)
     val binding: T = DataBindingUtil.setContentView(this, mLayoutResId)
     initDataBinding(binding)
-
     setupDefaultSettings()
     setupLayoutObserver(binding.root)
     val mActivity = this
@@ -95,27 +94,17 @@ abstract class BaseActivity<in T : ViewDataBinding>(private val mLayoutResId: In
   }
 
   // --
-  private var mClosePageConfirmationType = -1
-
-  private fun setClosePageConfirmationType(type: Int) {
-    if (type != 0 && type != 1) {
-      mClosePageConfirmationType = -1
-      return
-    }
-    this.mClosePageConfirmationType = type
-  }
-
-  fun setClosePageConfirmationApp() {
-    setClosePageConfirmationType(0)
-  }
-
-  fun setClosePageConfirmationPage() {
-    setClosePageConfirmationType(1)
+  open fun getConfirmationType(): Int {
+    return -1
   }
 
   override fun onBackPressed() {
+    if (getConfirmationType() < 0) {
+      super.onBackPressed()
+      return
+    }
     val mTitle = getString(string.fo_close_confirmation)
-    val mMessage = if (mClosePageConfirmationType == 0) {
+    val mMessage = if (getConfirmationType() == 0) {
       getString(string.fo_are_you_sure_close_app)
     } else {
       getString(string.fo_are_you_sure_close_page)

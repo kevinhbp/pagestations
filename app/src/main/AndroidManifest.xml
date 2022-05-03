@@ -33,6 +33,10 @@
     <activity
       android:name="id.kputro.dragon.ui.dashboard.DashboardActivity"
       android:exported="false" />
+    <activity
+      android:name="id.kputro.dragon.ui.menu.details.MenuDetailsActivity"
+      android:exported="false"
+      android:theme="@style/Theme.KevinPutro.Transparent" />
   </application>
 
 </manifest>

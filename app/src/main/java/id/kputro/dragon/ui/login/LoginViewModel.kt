@@ -1,5 +1,6 @@
 package id.kputro.dragon.ui.login
 
+import android.content.Intent
 import androidx.lifecycle.ViewModel
 import id.kputro.dragon.dimodule.ContentService
 import id.kputro.dragon.ui.base.BaseView
@@ -19,9 +20,9 @@ interface LoginContract {
 class LoginViewModel(private val contentService: ContentService) : ViewModel(),
   LoginContract.LoginViewModelContract {
 
-    private lateinit var view: LoginViewContract
+  private lateinit var view: LoginViewContract
 
-  override fun init(view: LoginViewContract) {
+  override fun init(view: LoginViewContract, data: Intent?) {
     this.view = view
     this.view.initLoginView()
   }
