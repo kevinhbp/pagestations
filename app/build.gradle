@@ -102,12 +102,14 @@ dependencies {
   releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
   // Material Dialogs
   implementation 'com.afollestad.material-dialogs:core:3.3.0'
+  // Lottie
+  implementation "com.airbnb.android:lottie:5.0.3"
   // Test
   testImplementation "junit:junit:$mJunit"
   androidTestImplementation "androidx.test.ext:junit:$mExtJunit"
   androidTestImplementation "androidx.test.espresso:espresso-core:$mExpressoCore"
-  implementation project(':app-core')
   // Module
+  implementation project(':app-core')
   implementation project(':bootstrap')
   implementation project(':pagestations')
 }

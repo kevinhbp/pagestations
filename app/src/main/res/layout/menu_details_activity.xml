@@ -12,21 +12,55 @@
 
   </data>
 
-  <androidx.constraintlayout.widget.ConstraintLayout
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:background="@color/bg_trans_dark">
+    android:layout_height="match_parent">
 
-    <TextView
-      style="@style/FoTextView.Large"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/bs_please_wait"
-      android:textColor="@color/text_white_1"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+    <View
+      android:id="@+id/vw_shadow"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:alpha="0"
+      android:background="@color/bg_trans_dark"
+      tools:alpha="1" />
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:clickable="true"
+      android:focusable="true" />
+
+    <FrameLayout
+      android:id="@+id/layout_bottom_content"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/bs_size_300"
+      android:background="@drawable/bg_bottom_sheet_1"
+      android:clickable="true"
+      android:focusable="true"
+      android:orientation="vertical"
+      app:behavior_hideable="false"
+      app:behavior_peekHeight="@dimen/bs_size_100"
+      app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+      <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bs_size_100"
+        android:clickable="true"
+        android:focusable="true">
+
+        <com.airbnb.lottie.LottieAnimationView
+          android:id="@+id/animation_view"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          app:lottie_autoPlay="true"
+          app:lottie_loop="true"
+          app:lottie_rawRes="@raw/loading_2" />
+
+      </FrameLayout>
+
+
+    </FrameLayout>
+
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

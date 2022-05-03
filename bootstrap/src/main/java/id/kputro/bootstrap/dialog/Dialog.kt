@@ -21,19 +21,23 @@ import id.kputro.bootstrap.R.layout
 import id.kputro.bootstrap.R.string
 import java.lang.ref.WeakReference
 
-typealias DialogReferenceDeclaration = Dialog.() -> Unit
-
-fun setupDialogReference(declaration: DialogReferenceDeclaration) {
-  val mDialog = BootstrapApplication.get().mDialog
-  declaration.invoke(mDialog)
+fun getDialogInstance(): Dialog {
+  return BootstrapApplication.get().mDialog
 }
 
-fun showMessageDialog(title: String, message: String, onDismiss: (() -> Unit)?) {
+fun showMessageDialog(
+  ref: WeakReference<Activity>,
+  title: String,
+  message: String,
+  onDismiss: (() -> Unit)?
+) {
   val mDialog = BootstrapApplication.get().mDialog
+  mDialog.setReference(ref)
   mDialog.showMessage(title, message, onDismiss)
 }
 
 fun showConfirmationDialog(
+  ref: WeakReference<Activity>,
   title: String,
   message: String,
   positiveButton: String,
@@ -41,16 +45,26 @@ fun showConfirmationDialog(
   onConfirmed: (isPositive: Boolean) -> Unit
 ) {
   val mDialog = BootstrapApplication.get().mDialog
+  mDialog.setReference(ref)
   mDialog.showConfirmation(title, message, positiveButton, negativeButton, onConfirmed)
 }
 
-fun showToastMessage(message: String, doLong: Boolean) {
+fun showToastMessage(
+  ref: WeakReference<Activity>,
+  message: String,
+  doLong: Boolean
+) {
   val mDialog = BootstrapApplication.get().mDialog
+  mDialog.setReference(ref)
   mDialog.showToast(message, doLong)
 }
 
-fun showLoadingDialog(show: Boolean) {
+fun showLoadingDialog(
+  ref: WeakReference<Activity>,
+  show: Boolean
+) {
   val mDialog = BootstrapApplication.get().mDialog
+  mDialog.setReference(ref)
   mDialog.showLoading(show)
 }
 
@@ -201,6 +215,7 @@ class Dialog : LifecycleObserver {
   }
 
   // --
+  @Suppress("unused")
   @OnLifecycleEvent(ON_PAUSE)
   fun onPause() {
     // will block dialog request when activity is on paused
@@ -208,6 +223,7 @@ class Dialog : LifecycleObserver {
     mToast?.cancel()
   }
 
+  @Suppress("unused")
   @OnLifecycleEvent(ON_RESUME)
   fun onResume() {
     // cancel block flag when activity is on resume

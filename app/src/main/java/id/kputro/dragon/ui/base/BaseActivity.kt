@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import id.kputro.bootstrap.dialog.setupDialogReference
+import id.kputro.bootstrap.dialog.getDialogInstance
 import id.kputro.bootstrap.dialog.showConfirmationDialog
 import id.kputro.bootstrap.dialog.showLoadingDialog
 import id.kputro.bootstrap.dialog.showMessageDialog
@@ -47,24 +47,22 @@ abstract class BaseActivity<in T : ViewDataBinding>(private val mLayoutResId: In
     initDataBinding(binding)
     setupDefaultSettings()
     setupLayoutObserver(binding.root)
-    val mActivity = this
-    setupDialogReference {
-      setReference(WeakReference(mActivity))
-      mActivity.lifecycle.addObserver(this)
-    }
+
+    // Register Lifecycle to Dialog Instance
+    this.lifecycle.addObserver(getDialogInstance())
   }
 
   // --
   override fun showLoading(show: Boolean) {
-    showLoadingDialog(show)
+    showLoadingDialog(WeakReference(this), show)
   }
 
   override fun showMessage(title: String?, message: String, onDismiss: (() -> Unit)?) {
-    showMessageDialog(title.replaceIfNull(), message, onDismiss)
+    showMessageDialog(WeakReference(this), title.replaceIfNull(), message, onDismiss)
   }
 
   override fun showToast(message: String, doLong: Boolean) {
-    showToastMessage(message, doLong)
+    showToastMessage(WeakReference(this), message, doLong)
   }
 
   // --
@@ -111,7 +109,7 @@ abstract class BaseActivity<in T : ViewDataBinding>(private val mLayoutResId: In
     }
     val mPositive = getString(string.fo_yes)
     val mNegative = getString(string.fo_no)
-    showConfirmationDialog(mTitle, mMessage, mPositive, mNegative) {
+    showConfirmationDialog(WeakReference(this), mTitle, mMessage, mPositive, mNegative) {
       if (it) {
         super.onBackPressed()
       }
