@@ -32,6 +32,10 @@ fun getAppScheme(): String {
   return Route.APP_SCHEME + "://"
 }
 
+fun getClosePageAddrs(): String {
+  return getAppScheme() + Route.CLOSE_PAGE
+}
+
 fun getDashboardPageAddrs(): String {
   return getAppScheme() + Route.PAGE_DASHBOARD
 }

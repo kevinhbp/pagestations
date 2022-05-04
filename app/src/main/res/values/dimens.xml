@@ -38,6 +38,10 @@
 
   <dimen name="fo_elevation_default">6dp</dimen>
 
+  <dimen name="fo_row_small">32dp</dimen>
+  <dimen name="fo_row_default">48dp</dimen>
+  <dimen name="fo_row_large">64dp</dimen>
+
   <dimen name="fo_size_img_logo_splash">180dp</dimen>
   <dimen name="fo_size_img_logo_dashboard">100dp</dimen>
   <dimen name="fo_size_img_icon_menu">32dp</dimen>

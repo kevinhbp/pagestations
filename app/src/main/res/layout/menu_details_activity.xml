@@ -30,7 +30,7 @@
       android:clickable="true"
       android:focusable="true" />
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
       android:id="@+id/layout_bottom_content"
       android:layout_width="match_parent"
       android:layout_height="@dimen/bs_size_300"
@@ -43,10 +43,14 @@
       app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
       <FrameLayout
-        android:layout_width="match_parent"
+        android:id="@+id/loading_frame"
+        android:layout_width="0dp"
         android:layout_height="@dimen/bs_size_100"
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.airbnb.lottie.LottieAnimationView
           android:id="@+id/animation_view"
@@ -59,8 +63,41 @@
 
       </FrameLayout>
 
+      <LinearLayout
+        android:id="@+id/content_frame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/fo_spacing_m"
+        android:orientation="vertical"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    </FrameLayout>
+        <TextView
+          style="@style/FoTextViewBold"
+          android:layout_width="wrap_content"
+          android:layout_height="@dimen/fo_row_small"
+          android:layout_marginHorizontal="@dimen/fo_spacing_l"
+          android:layout_marginTop="@dimen/fo_spacing_m"
+          android:gravity="start|center_vertical"
+          android:text="@{menuDetailsViewModel.textName}"
+          tools:text="Title" />
+
+        <TextView
+          style="@style/FoTextView.Small"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="@dimen/fo_spacing_l"
+          android:gravity="start|center_vertical"
+          android:text="@{menuDetailsViewModel.textDescription}"
+          android:textColor="@color/text_black_2"
+          tools:text="Lorem Ipsum sit dolores amet." />
+
+      </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
   </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

@@ -4,6 +4,7 @@ import androidx.databinding.Observable
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -50,4 +51,19 @@ class ViewExtension {
           super.onScrolled(recyclerView, dx, dy)
         }
       })
+}
+
+private var mDebounceJob: Job? = null
+private var mDebounceFlag: Boolean = false
+private var mDebounceScope: CoroutineScope = MainScope()
+
+fun doDebounceCall(waitMs: Long = 500L, callback: () -> Unit) {
+  if (mDebounceFlag) return
+  mDebounceFlag = true
+  mDebounceJob?.cancel()
+  mDebounceJob = mDebounceScope.launch {
+    delay(waitMs)
+    callback.invoke()
+    mDebounceFlag = false
+  }
 }
