@@ -2,9 +2,7 @@ package id.kputro.dragon.ui.menu.details
 
 import android.content.Intent
 import android.view.View
-import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
-import androidx.databinding.ObservableInt
 import androidx.lifecycle.ViewModel
 import id.kputro.dragon.core.extension.replaceIfNull
 import id.kputro.dragon.entity.MenuItemModel
@@ -35,7 +33,7 @@ class MenuDetailsViewModel() : ViewModel(),
   val textName = ObservableField("")
   val textDescription = ObservableField("")
 
-  val flagExpanded = ObservableBoolean(false)
+  var flagExpanded = false
 
   // --
   override fun init(view: MenuDetailsViewContract, data: Intent?) {

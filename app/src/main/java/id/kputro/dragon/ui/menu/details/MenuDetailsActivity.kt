@@ -6,9 +6,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import id.kputro.dragon.R.layout
 import id.kputro.dragon.databinding.MenuDetailsActivityBinding
-import id.kputro.dragon.extension.ViewExtension
 import id.kputro.dragon.extension.doDebounceCall
 import id.kputro.dragon.ui.base.BaseActivity
+import id.kputro.dragon.utils.applink.getClosePageAddrs
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MenuDetailsActivity : BaseActivity<MenuDetailsActivityBinding>(layout.menu_details_activity),
@@ -35,6 +35,18 @@ class MenuDetailsActivity : BaseActivity<MenuDetailsActivityBinding>(layout.menu
     menuDetailsViewModel.start()
   }
 
+  override fun onBackPressed() {
+    goTo(getClosePageAddrs())
+  }
+
+  override fun goTo(target: String) {
+    if (target == getClosePageAddrs()) {
+      setExpandSheet(false)
+      return
+    }
+    super.goTo(target)
+  }
+
   // --
   override fun initMenuDetailsView() {
     initSheetBehavior()
@@ -51,8 +63,11 @@ class MenuDetailsActivity : BaseActivity<MenuDetailsActivityBinding>(layout.menu
       }
 
       override fun onStateChanged(bottomSheet: View, newState: Int) {
-        if (newState == BottomSheetBehavior.STATE_EXPANDED || newState == BottomSheetBehavior.STATE_COLLAPSED) {
-          menuDetailsViewModel.flagExpanded.set(newState == BottomSheetBehavior.STATE_EXPANDED)
+        if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+          menuDetailsViewModel.flagExpanded = true
+        }
+        if (newState == BottomSheetBehavior.STATE_COLLAPSED && menuDetailsViewModel.flagExpanded) {
+          finish()
         }
       }
     })
@@ -88,7 +103,7 @@ class MenuDetailsActivity : BaseActivity<MenuDetailsActivityBinding>(layout.menu
   override fun setExpandSheet(flag: Boolean) {
     if (!::binding.isInitialized) return
     if (!::bottomContentBehavior.isInitialized) return
-    doDebounceCall(200L) {
+    doDebounceCall(50L) {
       bottomContentBehavior.state =
         if (flag) BottomSheetBehavior.STATE_EXPANDED else BottomSheetBehavior.STATE_COLLAPSED
     }

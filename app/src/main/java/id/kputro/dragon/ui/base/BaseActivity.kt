@@ -14,6 +14,7 @@ import id.kputro.bootstrap.dialog.showMessageDialog
 import id.kputro.bootstrap.dialog.showToastMessage
 import id.kputro.dragon.R.string
 import id.kputro.dragon.core.extension.replaceIfNull
+import id.kputro.dragon.utils.applink.getClosePageAddrs
 import id.kputro.pagestations.dsl.navigateTo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -67,6 +68,10 @@ abstract class BaseActivity<in T : ViewDataBinding>(private val mLayoutResId: In
 
   // --
   override fun goTo(target: String) {
+    if (target == getClosePageAddrs()) {
+      this@BaseActivity.finish()
+      return
+    }
     this.navigateTo(target)
   }
 
