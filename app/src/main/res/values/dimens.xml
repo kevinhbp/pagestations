@@ -26,6 +26,7 @@
   <dimen name="fo_spacing_neg_l">-16dp</dimen>
   <dimen name="fo_spacing_neg_xl">-22dp</dimen>
   <dimen name="fo_spacing_neg_xxl">-32dp</dimen>
+  <dimen name="fo_spacing_neg_48">-48dp</dimen>
 
   <dimen name="fo_radius_small">16dp</dimen>
   <dimen name="fo_radius_default">22dp</dimen>

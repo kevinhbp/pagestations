@@ -3,6 +3,7 @@ package id.kputro.dragon.ui.menu.details
 import android.content.Intent
 import android.view.View
 import androidx.databinding.ObservableField
+import androidx.databinding.ObservableInt
 import androidx.lifecycle.ViewModel
 import id.kputro.dragon.core.extension.replaceIfNull
 import id.kputro.dragon.entity.MenuItemModel
@@ -33,6 +34,9 @@ class MenuDetailsViewModel() : ViewModel(),
   val textName = ObservableField("")
   val textDescription = ObservableField("")
 
+  val imagePhoto = ObservableInt(0)
+  val imageBackground = ObservableInt(0)
+
   var flagExpanded = false
 
   // --
@@ -43,11 +47,17 @@ class MenuDetailsViewModel() : ViewModel(),
 
   override fun start() {
     if (!::view.isInitialized) return
-    model = null
-    val mModel = DataSingleton.get().selMenuItem ?: return
-    model = mModel
+    model = DataSingleton.get().selMenuItem
+    if (model == null) return
 
-    textName.set(mModel.name.replaceIfNull())
+    textName.set(model!!.name.replaceIfNull())
+    textDescription.set(model!!.descriptions.replaceIfNull())
+    if (model?.imageResId != null) {
+      imagePhoto.set(model!!.imageResId ?: 0)
+    }
+    if (model?.backgroundResId != null) {
+      imageBackground.set(model!!.backgroundResId ?: 0)
+    }
 
     view.setExpandSheet(true)
   }

@@ -103,7 +103,7 @@ class MenuDetailsActivity : BaseActivity<MenuDetailsActivityBinding>(layout.menu
   override fun setExpandSheet(flag: Boolean) {
     if (!::binding.isInitialized) return
     if (!::bottomContentBehavior.isInitialized) return
-    doDebounceCall(50L) {
+    doDebounceCall(if (flag) 250L else 50L) {
       bottomContentBehavior.state =
         if (flag) BottomSheetBehavior.STATE_EXPANDED else BottomSheetBehavior.STATE_COLLAPSED
     }

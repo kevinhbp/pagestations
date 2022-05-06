@@ -17,4 +17,5 @@
   <string name="fo_close_confirmation">Close confirmation</string>
   <string name="fo_are_you_sure_close_app">Are You sure to close this application ?</string>
   <string name="fo_are_you_sure_close_page">Are You sure to close this page ?</string>
+  <string name="fo_open">Open</string>
 </resources>

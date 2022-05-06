@@ -29,7 +29,7 @@
       android:layout_height="match_parent"
       android:clickable="true"
       android:focusable="true"
-      android:onClick="@{menuDetailsViewModel::onClickClose}"/>
+      android:onClick="@{menuDetailsViewModel::onClickClose}" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
       android:id="@+id/layout_bottom_content"
@@ -51,7 +51,8 @@
         android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
 
         <com.airbnb.lottie.LottieAnimationView
           android:id="@+id/animation_view"
@@ -68,21 +69,21 @@
         android:id="@+id/content_frame"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="@dimen/fo_spacing_m"
-        android:orientation="vertical"
         android:alpha="0"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:alpha="1">
 
         <TextView
           style="@style/FoTextViewBold"
-          android:layout_width="wrap_content"
+          android:layout_width="match_parent"
           android:layout_height="@dimen/fo_row_small"
-          android:layout_marginHorizontal="@dimen/fo_spacing_l"
+          android:layout_marginHorizontal="@dimen/fo_spacing_xl"
           android:layout_marginTop="@dimen/fo_spacing_m"
-          android:gravity="start|center_vertical"
+          android:gravity="center"
           android:text="@{menuDetailsViewModel.textName}"
           tools:text="Title" />
 
@@ -90,11 +91,93 @@
           style="@style/FoTextView.Small"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginHorizontal="@dimen/fo_spacing_l"
-          android:gravity="start|center_vertical"
+          android:layout_marginHorizontal="@dimen/fo_spacing_xl"
+          android:gravity="center"
           android:text="@{menuDetailsViewModel.textDescription}"
           android:textColor="@color/text_black_2"
           tools:text="Lorem Ipsum sit dolores amet." />
+
+        <androidx.cardview.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/bs_size_150"
+          android:layout_marginTop="@dimen/fo_spacing_l"
+          android:layout_marginBottom="@dimen/fo_spacing_neg_48"
+          app:cardBackgroundColor="@color/white"
+          app:cardCornerRadius="@dimen/fo_radius_default"
+          app:cardElevation="0dp"
+          app:cardPreventCornerOverlap="true">
+
+          <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_background"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bs_size_130"
+            android:layout_gravity="top"
+            android:scaleType="centerCrop"
+            app:setImage="@{menuDetailsViewModel.imageBackground}" />
+
+          <androidx.cardview.widget.CardView
+            android:id="@+id/wp_icon"
+            android:layout_width="@dimen/fo_size_button_l"
+            android:layout_height="@dimen/fo_size_button_l"
+            android:layout_marginBottom="@dimen/fo_spacing_xl"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/fo_size_img_logo_dashboard"
+            app:cardElevation="0dp"
+            app:cardPreventCornerOverlap="true">
+
+            <androidx.appcompat.widget.AppCompatImageView
+              android:id="@+id/iv_photo"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_gravity="center"
+              android:layout_margin="@dimen/fo_spacing_m"
+              android:scaleType="centerInside"
+              app:setImage="@{menuDetailsViewModel.imagePhoto}" />
+
+          </androidx.cardview.widget.CardView>
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="1"
+          android:background="@drawable/bg_bottom_sheet_1" />
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="@dimen/fo_spacing_xl"
+          android:layout_marginBottom="@dimen/fo_spacing_m"
+          android:orientation="horizontal">
+
+          <TextView
+            style="@style/BsButton.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/fo_size_button_s"
+            android:layout_marginBottom="@dimen/fo_spacing_s"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{menuDetailsViewModel::onClickClose}"
+            android:text="@string/fo_dismiss" />
+
+          <View
+            android:layout_width="@dimen/fo_spacing_m"
+            android:layout_height="@dimen/fo_spacing_m"
+            android:layout_marginBottom="@dimen/fo_spacing_s" />
+
+          <TextView
+            style="@style/BsButton.Primary"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/fo_size_button_s"
+            android:layout_marginBottom="@dimen/fo_spacing_s"
+            android:layout_weight="1"
+            android:onClick="@{menuDetailsViewModel::onClickOpen}"
+            android:text="@string/fo_open" />
+
+        </LinearLayout>
 
       </LinearLayout>
 

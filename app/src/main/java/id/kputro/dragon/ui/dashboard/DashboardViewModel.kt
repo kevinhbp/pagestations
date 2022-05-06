@@ -65,7 +65,7 @@ class DashboardViewModel(private val contentService: ContentService) : ViewModel
         getApplinkPageAddrs(),
         "Applink Saver",
         "Save link conveniently and boost productivity.",
-        drawable.bg_standard_menu,
+        drawable.bg_standard_menu_dark_navy,
         drawable.ic_tropical_space_shuttle
       )
     )

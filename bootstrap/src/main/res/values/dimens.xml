@@ -24,6 +24,9 @@
   <dimen name="bs_button_size_xl">42dp</dimen>
 
   <dimen name="bs_size_300">300dp</dimen>
+  <dimen name="bs_size_150">150dp</dimen>
+  <dimen name="bs_size_130">130dp</dimen>
+  <dimen name="bs_size_120">120dp</dimen>
   <dimen name="bs_size_100">100dp</dimen>
   <dimen name="bs_size_90">90dp</dimen>
   <dimen name="bs_size_80">80dp</dimen>
