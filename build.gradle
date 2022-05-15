@@ -2,7 +2,7 @@
 buildscript {
   ext {
     setup = [
-        appName: "You Companion",
+        appName: "Page Stations Sample",
         applicationId: "id.kputro.dragon",
         compileSdkVersion: 31,
         minSdkVersion: 21,
